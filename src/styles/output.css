@@ -571,8 +571,20 @@ video {
   margin-top: 1rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .w-20 {
@@ -635,6 +647,14 @@ video {
   max-width: 64rem;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -657,6 +677,19 @@ video {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-y-10 {
+  row-gap: 2.5rem;
+}
+
+.gap-x-5 {
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+
+.gap-y-8 {
+  row-gap: 2rem;
 }
 
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
@@ -715,6 +748,15 @@ video {
 .bg-\[\#CA4E02\] {
   --tw-bg-opacity: 1;
   background-color: rgb(202 78 2 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#7CADD8\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(124 173 216 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[bg-\[\#7CADD8\]\] {
+  background-color: bg-[#7CADD8];
 }
 
 .p-2 {
@@ -833,6 +875,10 @@ video {
   font-family: RobotoCondensed Regular;
 }
 
+.font-Black {
+  font-family: RobotoCondensed Black;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -841,6 +887,16 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-\[\#555555\] {
