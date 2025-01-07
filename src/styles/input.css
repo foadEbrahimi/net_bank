@@ -1,19 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: 'bold';
-  src: url(../font/RobotoCondensed-Bold.ttf);
+  font-family: 'RobotoCondensed Bold';
+  src: url(../font/RobotoCondensed-Medium.ttf);
 }
 @font-face {
-  font-family: 'base';
+  font-family: 'RobotoCondensed Thin';
   src: url(../font/RobotoCondensed-Thin.ttf);
 }
 @font-face {
-  font-family: 'black';
+  font-family: 'RobotoCondensed Black';
   src: url(../font/RobotoCondensed-Black.ttf);
 }
-body {
-  background-color: #7cadd8;
-}
+
 * {
-    font-family: "base";
-  font-size: 1.5rem;
+  font-family: 'RobotoCondensed Thin';
 }

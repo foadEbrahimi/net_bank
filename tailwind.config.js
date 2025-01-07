@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js}'],
+  content: ['*.{html,js}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Black: ["RobotoCondensed Black"],
+        Bold: ["RobotoCondensed Bold"],
+        Base: ["RobotoCondensed Thin"],
+      },
+    },
   },
   plugins: [],
 };
