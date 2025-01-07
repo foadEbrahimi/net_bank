@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Black: ["RobotoCondensed Black"],
-        Bold: ["RobotoCondensed Bold"],
-        Base: ["RobotoCondensed Thin"],
+        Black: ['RobotoCondensed Black'],
+        Bold: ['RobotoCondensed Bold'],
+        Base: ['RobotoCondensed Thin'],
+        Regular: ['RobotoCondensed Regular'],
       },
     },
   },
