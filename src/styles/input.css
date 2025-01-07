@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'bold';
+  src: url(../font/RobotoCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: 'base';
+  src: url(../font/RobotoCondensed-Thin.ttf);
+}
+@font-face {
+  font-family: 'black';
+  src: url(../font/RobotoCondensed-Black.ttf);
+}
+body {
+  background-color: #7cadd8;
+}
+* {
+    font-family: "base";
+  font-size: 1.5rem;
+}
