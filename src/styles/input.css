@@ -26,6 +26,27 @@
 #carousel-item-1 {
   background: url('../images/light-bg.jpg') center/cover;
 }
-#carousel-item-2 , #carousel-item-3 {
+#carousel-item-2,
+#carousel-item-3 {
   background: url('../images/dark-bg.jpg') center/cover;
 }
+
+.operations__tab--active {
+  background-color: white;
+  color: #555555;
+  font-family: 'RobotoCondensed Black' !important;
+}
+.operations__tab {
+  font-family: 'RobotoCondensed Regular';
+}
+.operations__tab:hover {
+  border: 1px solid white;
+  border-bottom: 0;
+}
+.operations__content--active {
+  display: flex;
+  flex-direction: column;
+}
+/* .operations__content {
+  display: none;
+} */
