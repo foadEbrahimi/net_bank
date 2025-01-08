@@ -18,7 +18,9 @@
   font-family: 'RobotoCondensed Regular';
   src: url(../font/RobotoCondensed-Regular.ttf);
 }
-
+body {
+  overflow-x: hidden;
+}
 * {
   font-family: 'RobotoCondensed Thin';
 }
