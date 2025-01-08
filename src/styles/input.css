@@ -22,3 +22,10 @@
 * {
   font-family: 'RobotoCondensed Thin';
 }
+
+#carousel-item-1 {
+  background: url('../images/light-bg.jpg') center/cover;
+}
+#carousel-item-2 , #carousel-item-3 {
+  background: url('../images/dark-bg.jpg') center/cover;
+}
