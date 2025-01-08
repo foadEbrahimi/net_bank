@@ -615,12 +615,24 @@ video {
   width: 100%;
 }
 
+.w-\[20rem\] {
+  width: 20rem;
+}
+
 .min-w-\[9rem\] {
   min-width: 9rem;
 }
 
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-\[40rem\] {
+  max-width: 40rem;
+}
+
+.\!max-w-\[40rem\] {
+  max-width: 40rem !important;
 }
 
 .scale-x-\[-1\] {
@@ -900,6 +912,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1032,6 +1049,14 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:w-\[20rem\] {
+    width: 20rem;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
   .md\:\!px-12 {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
@@ -1056,6 +1081,18 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:w-\[40rem\] {
+    width: 40rem;
+  }
+
+  .xl\:max-w-\[40rem\] {
+    max-width: 40rem;
+  }
+
+  .xl\:\!max-w-\[40rem\] {
+    max-width: 40rem !important;
+  }
+
   .xl\:\!px-24 {
     padding-left: 6rem !important;
     padding-right: 6rem !important;
@@ -1064,6 +1101,11 @@ video {
   .xl\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .xl\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
