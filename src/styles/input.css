@@ -36,7 +36,11 @@
   color: #555555;
   font-family: 'RobotoCondensed Black' !important;
 }
-.operations__tab {
+
+.operations__tab--active span {
+  font-family: 'RobotoCondensed Black' !important;
+}
+.operations__tab span {
   font-family: 'RobotoCondensed Regular';
 }
 .operations__tab:hover {
@@ -47,6 +51,3 @@
   display: flex;
   flex-direction: column;
 }
-/* .operations__content {
-  display: none;
-} */
