@@ -1,6 +1,8 @@
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+const menuBtn = document.getElementById('menuBtn');
+const menuList = document.getElementById('menuList');
 
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
@@ -23,4 +25,14 @@ tabsContainer.addEventListener('click', function (e) {
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.remove('hidden');
+});
+
+menuBtn.addEventListener('click', () => {
+  menuList.classList.toggle('hidden');
+});
+
+window.addEventListener('click', function (event) {
+  if (!menuBtn.contains(event.target) && !menuList.contains(event.target)) {
+    menuList.classList.add('hidden');
+  }
 });

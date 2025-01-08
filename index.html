@@ -16,15 +16,35 @@
       <div>
         <img src="./src/images/logo-visa-alt.webp" alt="logo" class="w-20" />
       </div>
-      <div class="flex items-center gap-2 2xl:!gap-5">
+      <div class="flex items-center gap-2 relative 2xl:!gap-5">
         <button
           class="bg-[#CD5A03] rounded-md font-Bold py-2 px-3 text-white 2xl:text-lg"
         >
           Get a Visa Gist Card
         </button>
-        <button>
+        <button id="menuBtn">
           <img src="./src/images/nav-list.svg" class="w-6" alt="svg" />
         </button>
+        <div
+          id="menuList"
+          class="bg-[#565656] py-2 rounded-md z-10 min-w-[18rem] right-0 hidden absolute top-[4.2rem]"
+        >
+          <ul
+            class="[&>*]:px-4 [&>*]:py-2 [&>*]:bg-transparent [&>*]:text-xl [&>*]:cursor-pointer [&>*]:font-Regular [&>*]:text-white"
+          >
+            <li class="hover:bg-white hover:text-black">Register Card</li>
+            <li class="hover:bg-white hover:text-black">
+              Check Balance/Transactions
+            </li>
+            <li class="hover:bg-white hover:text-black">Personalize PIN</li>
+            <li class="hover:bg-white hover:text-black">
+              Frequently Asked Questions
+            </li>
+            <li class="hover:bg-white hover:text-black">Contact Us</li>
+            <li class="hover:bg-white hover:text-black">Privacy Policy</li>
+            <li class="hover:bg-white hover:text-black">Get More Gift Cards</li>
+          </ul>
+        </div>
       </div>
     </nav>
     <!-- end navbar -->
