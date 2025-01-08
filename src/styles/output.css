@@ -1057,6 +1057,10 @@ body {
     justify-content: space-between;
   }
 
+  .md\:gap-20 {
+    gap: 5rem;
+  }
+
   .md\:\!px-12 {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
