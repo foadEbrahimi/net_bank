@@ -2,22 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: 'sofia 700';
+  font-family: 'sofia700';
   src: url('../font/SofiaProBlackAz.otf');
 }
 @font-face {
-  font-family: 'sofia 600';
+  font-family: 'sofia600';
   src: url('../font/SofiaProBoldAz.otf');
 }
 @font-face {
-  font-family: 'sofia 500';
+  font-family: 'sofia500';
   src: url('../font/SofiaProMediumAz.otf');
 }
 @font-face {
-  font-family: 'sofia 400';
+  font-family: 'sofia400';
   src: url('../font/SofiaProRegularAz.otf');
 }
 
 * {
-  font-family: 'sofia 400';
+  font-family: 'sofia400';
 }
