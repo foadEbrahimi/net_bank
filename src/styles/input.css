@@ -1,56 +1,23 @@
-/* @import '/node_modules/toastify-js/src/toastify.css'; */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: 'RobotoCondensed Bold';
-  src: url(../font/RobotoCondensed-Medium.ttf);
+  font-family: 'sofia 700';
+  src: url('../font/SofiaProBlackAz.otf');
 }
 @font-face {
-  font-family: 'RobotoCondensed Thin';
-  src: url(../font/RobotoCondensed-Thin.ttf);
+  font-family: 'sofia 600';
+  src: url('../font/SofiaProBoldAz.otf');
 }
 @font-face {
-  font-family: 'RobotoCondensed Black';
-  src: url(../font/RobotoCondensed-Black.ttf);
+  font-family: 'sofia 500';
+  src: url('../font/SofiaProMediumAz.otf');
 }
 @font-face {
-  font-family: 'RobotoCondensed Regular';
-  src: url(../font/RobotoCondensed-Regular.ttf);
+  font-family: 'sofia 400';
+  src: url('../font/SofiaProRegularAz.otf');
 }
-body {
-  overflow-x: hidden;
-}
+
 * {
-  font-family: 'RobotoCondensed Thin';
-}
-
-#carousel-item-1 {
-  background: url('../images/light-bg.jpg') center/cover;
-}
-#carousel-item-2,
-#carousel-item-3 {
-  background: url('../images/dark-bg.jpg') center/cover;
-}
-
-.operations__tab--active {
-  background-color: white;
-  color: #555555;
-  font-family: 'RobotoCondensed Black' !important;
-}
-
-.operations__tab--active span {
-  font-family: 'RobotoCondensed Black' !important;
-}
-.operations__tab span {
-  font-family: 'RobotoCondensed Regular';
-}
-.operations__tab:hover {
-  border: 1px solid white;
-  border-bottom: 0;
-}
-.operations__content--active {
-  display: flex;
-  flex-direction: column;
+  font-family: 'sofia 400';
 }
