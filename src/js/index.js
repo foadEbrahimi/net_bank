@@ -164,9 +164,6 @@ function getDeviceType() {
     return 'Desktop';
   }
 }
-console.log(form);
-console.log(form2);
-console.log(form3);
 
 form.addEventListener('submit', e => {
   e.preventDefault();
