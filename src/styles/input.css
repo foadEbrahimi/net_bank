@@ -1,7 +1,8 @@
+/* @import '/node_modules/toastify-js/src/toastify.css'; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
   font-family: 'RobotoCondensed Bold';
   src: url(../font/RobotoCondensed-Medium.ttf);
