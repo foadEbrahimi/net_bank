@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./src/styles/output.css" />
   </head>
   <body>
+    <!-- nav -->
     <nav
       class="p-2 py-4 shadow-lg grid grid-cols-3 lg:grid-cols-12 items-center justify-between xl:px-16 2xl:px-20"
     >
@@ -161,5 +162,177 @@
       </div>
       <!-- end search -->
     </nav>
+    <!-- end nav -->
+
+    <!-- main -->
+    <main class="p-2 py-4 xl:px-16 2xl:px-32 mt-5">
+      <span class="text-[#3B1A6E] font-sofia500 text-sm lg:text-lg"
+        >Check Gift Card Balance
+      </span>
+      <div class="mt-3 lg:grid lg:grid-cols-7 lg:gap-10">
+        <div class="bg-[#F6F6F6] p-2 flex flex-col flex-1 gap-3 lg:col-span-4">
+          <span
+            class="text-[#3B1A6E] xl:text-[#505E71] xl:text-lg font-sofia500 text-sm"
+            >Uncover the secrets of your gift card balance with ease. Whether
+            you got a thoughtful Visa, Mastercard, or a beloved brand's gift
+            card, this is your one-stop shop for balance check. Simply locate
+            your card number and security code (if applicable), fill in the
+            fields below, and click "Check Balance." It's like magic... but
+            faster!
+          </span>
+          <span class="text-[#3B1A6E] xl:text-lg font-sofia600 text-sm"
+            >Visa® or Mastercard®</span
+          >
+          <span class="text-sm text-[#3B1A6E] xl:text-[#505E71] xl:text-lg">
+            Enter your card information to view your balance and transactions.
+            If you would like to check the balance of your GiftCards.com Gift
+            Card (19-digits card number), click here.
+          </span>
+          <div class="space-y-3">
+            <div>
+              <div class="relative">
+                <label
+                  for="card-number"
+                  class="absolute left-2 top-2 text-[#505E71] transition-all bg-white duration-300 ease-in-out"
+                >
+                  Enter 16-digit card number
+                </label>
+                <input
+                  maxlength="19"
+                  type="text"
+                  id="card-number"
+                  placeholder="____-____-____-____"
+                  class="p-2 w-full rounded-2xl focus:outline-none placeholder:opacity-5 focus:placeholder:opacity-100 border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
+                  onfocus="this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')"
+                  onblur="if(this.value===''){this.previousElementSibling.classList.remove('-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col justify-between gap-3 md:flex-row">
+              <div class="md:flex-1">
+                <div class="relative">
+                  <label
+                    for="expiration-date"
+                    class="absolute left-2 top-2 text-[#505E71] transition-all bg-white duration-300 ease-in-out"
+                  >
+                    Expiration Date
+                  </label>
+                  <input
+                    maxlength="5"
+                    type="text"
+                    id="expiration-date"
+                    placeholder="MM/YY"
+                    class="p-2 w-full rounded-2xl focus:outline-none placeholder:opacity-5 focus:placeholder:opacity-100 border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
+                    onfocus="this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')"
+                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                  />
+                </div>
+              </div>
+              <div class="md:flex-1">
+                <div class="relative">
+                  <label
+                    for="cvv2"
+                    class="absolute left-2 top-2 text-[#505E71] transition-all bg-white duration-300 ease-in-out"
+                  >
+                    Cvv
+                  </label>
+                  <input
+                    maxlength="3"
+                    type="text"
+                    id="cvv2"
+                    class="p-2 w-full rounded-2xl focus:outline-none border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
+                    onfocus="this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')"
+                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="uppercase font-sofia600 lg:p-4 lg:text-[15px] lg:mt-5 text-white bg-[#3B1A6E] rounded-xl text-sm p-2 max-w-fit px-5 hover:bg-[#684997] transition-all"
+          >
+            check balance
+          </button>
+          <div class="flex flex-col gap-3">
+            <span class="text-[#3B1A6E] xl:text-[#505E71] xl:text-lg text-sm"
+              >Visa and Mastercard Gift Cards can be used everywhere Visa and
+              Mastercard debit cards are accepted in the US. No cash or ATM
+              access.
+            </span>
+            <span
+              class="text-[#3B1A6E] xl:text-[#505E71] xl:text-lg text-sm font-sofia600"
+              >ⓘ To activate your card, please
+              <span class="underline">click here</span>
+            </span>
+          </div>
+        </div>
+        <div class="gift-cards-section lg:col-span-3 bg-[#E3DAF0] flex-1">
+          <h2 class="text-[#3B1A6E] text-3xl font-sofia500 pt-3">
+            Top Selling Gift Cards
+          </h2>
+          <div
+            class="cards-container grid-cols-2 lg:p-2 justify-center items-center"
+          >
+            <div class="card place-self-end">
+              <div
+                class="bg-[#FFDC00] h-8 flex items-center justify-center text-sm uppercase text-center rounded-t-xl"
+              >
+                best seller
+              </div>
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img1.png"
+                  class="w-44"
+                  alt="Visa Virtual Gift Card"
+                />
+                <h3 class="text-sm">Visa® Virtual Gift Card</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+            <div class="card">
+              <div
+                class="bg-[#FFDC00] h-8 text-sm uppercase text-center rounded-t-xl"
+              ></div>
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img3.png"
+                  class="w-44"
+                  alt="DoorDash eGift"
+                />
+                <h3 class="text-sm">DoorDash eGift</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+            <div class="card place-self-end">
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img2.png"
+                  class="w-44"
+                  alt="Giftcards.com eGift"
+                />
+                <h3 class="text-sm">Giftcards.com eGift</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+            <div class="card place-self-start">
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img3.png"
+                  class="w-44"
+                  alt="DoorDash eGift"
+                />
+                <h3 class="text-sm">DoorDash eGift</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="text-xl text-[#3B1A6E] font-sofia600 pt-2"
+            >Checkout all top selling cards &#x2192;</span
+          >
+        </div>
+      </div>
+    </main>
+    <!-- end main -->
+    <script src="./src/js/index.js"></script>
   </body>
 </html>
