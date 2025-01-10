@@ -562,6 +562,10 @@ video {
   position: relative;
 }
 
+.\!-top-2 {
+  top: -0.5rem !important;
+}
+
 .-top-2 {
   top: -0.5rem;
 }
@@ -578,44 +582,12 @@ video {
   right: 0.25rem;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .top-2 {
   top: 0.5rem;
 }
 
 .top-\[50\%\] {
   top: 50%;
-}
-
-.-top-0 {
-  top: -0px;
-}
-
-.top-3 {
-  top: 0.75rem;
-}
-
-.-top-4 {
-  top: -1rem;
-}
-
-.-top-3 {
-  top: -0.75rem;
-}
-
-.\!-top-2 {
-  top: -0.5rem !important;
-}
-
-.\!top-0 {
-  top: 0px !important;
-}
-
-.\!top-2 {
-  top: 0.5rem !important;
 }
 
 .order-1 {

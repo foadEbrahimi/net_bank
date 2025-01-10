@@ -84,13 +84,15 @@
 // };
 
 function validateGiftCardCode(code) {
+  const str = code.replaceAll('-', '');
+
   // بررسی طول کد (باید 16 کاراکتر باشد)
-  if (code.length !== 16) {
+  if (str.length !== 16) {
     return false;
   }
   // بررسی اینکه کد فقط شامل حروف بزرگ و اعداد باشد
   const regex = /^[A-Z0-9]+$/;
-  if (!regex.test(code)) {
+  if (!regex.test(str)) {
     return false;
   } else {
     return true;
