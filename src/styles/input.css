@@ -84,11 +84,11 @@ h2 {
   background-color: #765aa1;
 }
 
-#scroll::-webkit-scrollbar {
+#scrollBox::-webkit-scrollbar {
   width: 10px;
 }
 
-#scroll::-webkit-scrollbar-thumb {
+#scrollBox::-webkit-scrollbar-thumb {
   background: #6a1b9a;
   border-radius: 15px;
 }
