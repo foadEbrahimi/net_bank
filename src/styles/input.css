@@ -83,3 +83,12 @@ h2 {
 .card button:hover {
   background-color: #765aa1;
 }
+
+#scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+#scroll::-webkit-scrollbar-thumb {
+  background: #6a1b9a;
+  border-radius: 15px;
+}
