@@ -4,13 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Check Your Gift Card's Balance | Giftcards.com</title>
-    <!-- <link rel="stylesheet" href="./src/styles/bootstrap.min.css" /> -->
     <link
       rel="shortcut icon"
       href="./src/images/favicon.svg"
       type="image/x-icon"
     />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
     <link rel="stylesheet" href="./src/styles/output.css" />
   </head>
   <body>
@@ -203,8 +201,8 @@
                   id="card-number"
                   placeholder="____-____-____-____"
                   class="p-2 w-full rounded-2xl focus:outline-none placeholder:opacity-5 focus:placeholder:opacity-100 border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
-                  onfocus="this.previousElementSibling.classList.add('top-0', 'left-0', 'text-xs')"
-                  onblur="if(this.value===''){this.previousElementSibling.classList.remove('top-0', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                  onfocus="this.previousElementSibling.classList.add('!-top-2', 'left-0', 'text-xs')"
+                  onblur="if(this.value===''){this.previousElementSibling.classList.remove('!-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
                 />
               </div>
             </div>
@@ -223,8 +221,8 @@
                     id="expiration-date"
                     placeholder="MM/YY"
                     class="p-2 w-full rounded-2xl focus:outline-none placeholder:opacity-5 focus:placeholder:opacity-100 border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
-                    onfocus="this.previousElementSibling.classList.add('top-0', 'left-0', 'text-xs')"
-                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('top-0', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                    onfocus="this.previousElementSibling.classList.add('!-top-2', 'left-0', 'text-xs')"
+                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('!-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
                   />
                 </div>
               </div>
@@ -241,14 +239,15 @@
                     type="text"
                     id="cvv2"
                     class="p-2 w-full rounded-2xl focus:outline-none border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
-                    onfocus="this.previousElementSibling.classList.add('top-0', 'left-0', 'text-xs')"
-                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('top-0', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                    onfocus="this.previousElementSibling.classList.add('!-top-2', 'left-0', 'text-xs')"
+                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('!-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
                   />
                 </div>
               </div>
             </div>
           </div>
           <button
+            id="checkBtn"
             class="uppercase font-sofia600 lg:p-4 lg:text-[15px] lg:mt-5 text-white bg-[#3B1A6E] rounded-xl text-sm p-2 max-w-fit px-5 hover:bg-[#684997] transition-all"
           >
             check balance

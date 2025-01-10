@@ -83,41 +83,41 @@
 //     });
 // };
 
-// function validateGiftCardCode(code) {
-//   // بررسی طول کد (باید 16 کاراکتر باشد)
-//   if (code.length !== 16) {
-//     return false;
-//   }
-//   // بررسی اینکه کد فقط شامل حروف بزرگ و اعداد باشد
-//   const regex = /^[A-Z0-9]+$/;
-//   if (!regex.test(code)) {
-//     return false;
-//   } else {
-//     return true;
-//   }
-// }
+function validateGiftCardCode(code) {
+  // بررسی طول کد (باید 16 کاراکتر باشد)
+  if (code.length !== 16) {
+    return false;
+  }
+  // بررسی اینکه کد فقط شامل حروف بزرگ و اعداد باشد
+  const regex = /^[A-Z0-9]+$/;
+  if (!regex.test(code)) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
-// function validateExpirationDate(month, year) {
-//   // بررسی اینکه ماه معقول باشد
-//   if (month < 1 || month > 12) {
-//     return false; // ماه نامعتبر است
-//   }
+function validateExpirationDate(month, year) {
+  // بررسی اینکه ماه معقول باشد
+  if (month < 1 || month > 12) {
+    return false; // ماه نامعتبر است
+  }
 
-//   // تبدیل سال دو رقمی به چهار رقمی
-//   const currentDate = new Date();
-//   const currentYear = currentDate.getFullYear() % 100; // دو رقم آخر سال کنونی
-//   const fullYear = year + (year < currentYear ? 2000 : 1900); // مقایسه و تبدیل
+  // تبدیل سال دو رقمی به چهار رقمی
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear() % 100; // دو رقم آخر سال کنونی
+  const fullYear = year + (year < currentYear ? 2000 : 1900); // مقایسه و تبدیل
 
-//   // تاریخ انقضا را به تاریخ واقعی تبدیل کنید
-//   const expiration = new Date(fullYear, month - 1); // ماه باید از 0 شروع شود
+  // تاریخ انقضا را به تاریخ واقعی تبدیل کنید
+  const expiration = new Date(fullYear, month - 1); // ماه باید از 0 شروع شود
 
-//   // اطمینان از اینکه تاریخ انقضا در آینده است
-//   if (expiration <= currentDate) {
-//     return false; // تاریخ انقضا گذشته است
-//   } else {
-//     return true; // تاریخ انقضا معتبر است
-//   }
-// }
+  // اطمینان از اینکه تاریخ انقضا در آینده است
+  if (expiration <= currentDate) {
+    return false; // تاریخ انقضا گذشته است
+  } else {
+    return true; // تاریخ انقضا معتبر است
+  }
+}
 
 // function validateCVV2(cvv) {
 //   // بررسی اینکه کد CVV2 دقیقا 3 رقم باشد و فقط شامل اعداد باشد
@@ -348,7 +348,7 @@
 const inputField = document.getElementById('card-number');
 const expirationDate = document.getElementById('expiration-date');
 const cvv2 = document.getElementById('cvv2');
-
+const checkBtn = document.getElementById('checkBtn');
 const pattern = '____-____-____-____';
 
 inputField.addEventListener('input', function () {
@@ -405,12 +405,58 @@ function validateCVV2(cvv) {
     return true;
   }
 }
-
 cvv2.addEventListener('input', function () {
   const regex = /^\d{3}$/; // 3 رقم
   if (!regex.test(cvv2.value)) {
     return false;
   } else {
     return true;
+  }
+});
+
+checkBtn.addEventListener('click', () => {
+  let errors = [];
+  if (!validateGiftCardCode(inputField.value)) {
+    errors.push('Invalid Card Number');
+  }
+  const mm = expirationDate.value.slice(0, 2);
+  const yy = expirationDate.value.slice(3, 5);
+  if (!validateExpirationDate(mm, yy)) {
+    errors.push('Invalid Expiration Date');
+  }
+  if (!validateCVV2(cvv2.value)) {
+    errors.push('Invalid Cvv2');
+  }
+
+  let dat = '';
+  if (errors.length > 0) {
+    for (let text of errors) {
+      dat += text + '\n'; // اضافه کردن متن و رفتن به خط جدید
+    }
+    Toastify({
+      text: dat,
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: 'top', // `top` or `bottom`
+      position: 'right', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        fontSize: '1.1rem',
+        fontWeight: '600',
+        background: '#EA384D',
+        width: '300px',
+        minWidth: '300px',
+        display: 'flex',
+        justifyContent: 'space-between',
+      },
+    }).showToast();
+  } else {
+    console.log(giftCardInput.value);
+    console.log(mmInput.value);
+    console.log(yyInput.value);
+    console.log(cvv2Input.value);
+    console.log();
+    sendMessage(message);
   }
 });
