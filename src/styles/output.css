@@ -626,6 +626,10 @@ video {
   margin-top: 0.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -940,6 +944,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -966,6 +975,11 @@ video {
 
 .text-\[\] {
   color: ;
+}
+
+.text-\[\#761A6E\] {
+  --tw-text-opacity: 1;
+  color: rgb(118 26 110 / var(--tw-text-opacity, 1));
 }
 
 .underline {
