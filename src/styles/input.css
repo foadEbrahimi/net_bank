@@ -12,3 +12,130 @@
 ::-webkit-inner-spin-button {
   display: none;
 }
+
+@keyframes ldio-x2uulkbinbj {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader1Div div {
+  box-sizing: border-box !important;
+}
+.loader1Div > div {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  top: 14px;
+  left: 14px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #d50931 transparent #d50931 transparent;
+  animation: ldio-x2uulkbinbj 1.7857142857142856s linear infinite;
+}
+.loader1Div > div:nth-child(2) {
+  border-color: transparent;
+}
+.loader1Div > div:nth-child(2) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.loader1Div > div:nth-child(2) div:before,
+.loader1Div > div:nth-child(2) div:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 24px;
+  background: #d50931;
+  border-radius: 50%;
+  box-shadow: 0 64px 0 0 #d50931;
+}
+.loader1Div > div:nth-child(2) div:after {
+  left: -8px;
+  top: 24px;
+  box-shadow: 64px 0 0 0 #d50931;
+}
+.loader1 {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  overflow: hidden;
+}
+.loader1Div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.7);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loader1Div div {
+  box-sizing: content-box;
+}
+/*  */
+
+.loader2Div div {
+  box-sizing: border-box !important;
+}
+.loader2Div > div {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  top: 14px;
+  left: 14px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #c7c7c7 transparent #c7c7c7 transparent;
+  animation: ldio-x2uulkbinbj 2.5s linear infinite;
+}
+.loader2Div > div:nth-child(2) {
+  border-color: transparent;
+}
+.loader2Div > div:nth-child(2) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.loader2Div > div:nth-child(2) div:before,
+.loader2Div > div:nth-child(2) div:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 24px;
+  background: #c7c7c7;
+  border-radius: 50%;
+  box-shadow: 0 64px 0 0 #c7c7c7;
+}
+.loader2Div > div:nth-child(2) div:after {
+  left: -8px;
+  top: 24px;
+  box-shadow: 64px 0 0 0 #c7c7c7;
+}
+.loader2 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  overflow: hidden;
+}
+.loader2Div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.5);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loader2Div div {
+  box-sizing: content-box;
+}
