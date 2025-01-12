@@ -304,4 +304,14 @@ firstBtn.addEventListener('click', () => {
   } else {
     codeValid.classList.add('hidden');
   }
+
+  if (
+    validateIranianMobileNumber(phoneInput.value) &&
+    validateNationalID(`${codemeliInput.value}`)
+  ) {
+    setTimeout(() => {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }, 1500);
+  }
 });
