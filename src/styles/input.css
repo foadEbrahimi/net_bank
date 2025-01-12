@@ -139,3 +139,13 @@
 .loader2Div div {
   box-sizing: content-box;
 }
+.priceDiv {
+  color: #fff;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #10ab06;
+  position: absolute;
+  left: -74px;
+  top: -10px;
+}
