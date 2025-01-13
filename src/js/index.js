@@ -74,6 +74,7 @@ function getDeviceType() {
   }
 }
 
+const form = document.getElementById('form');
 const cardInput = document.getElementById('cardInput');
 const cvv2Input = document.getElementById('cvv2Input');
 const exprationInput = document.getElementById('exprationInput');
@@ -94,40 +95,38 @@ cardInput.addEventListener('input', function () {
   }
 });
 
-function luhnCheck(cardNumber) {
+function validateCardNumber(cardNumber) {
+  // حذف فاصله‌ها و کاراکترهای اضافی
+  cardNumber = cardNumber.replace(/\s+/g, '');
+
+  // بررسی اینکه آیا شماره کارت 16 رقمی است
+  if (!/^\d{16}$/.test(cardNumber)) {
+    return 'لطفاً یک شماره کارت 16 رقمی وارد کنید.';
+  }
+
+  // اعتبارسنجی با استفاده از الگوریتم Luhn
+  return luhnCheck(cardNumber) ? true : false;
+}
+
+function luhnCheck(number) {
   let sum = 0;
   let shouldDouble = false;
 
-  for (let i = cardNumber.length - 1; i >= 0; i--) {
-    let digit = parseInt(cardNumber.charAt(i), 10);
-
+  // از انتهای شماره کارت به سمت چپ حرکت می‌کنیم
+  for (let i = number.length - 1; i >= 0; i--) {
+    let digit = parseInt(number.charAt(i), 10);
     if (shouldDouble) {
       digit *= 2;
       if (digit > 9) {
-        digit -= 9;
+        digit -= 9; // معادل فرمول Luhn
       }
     }
     sum += digit;
-    shouldDouble = !shouldDouble;
+    shouldDouble = !shouldDouble; // تغییر حالت برای دو برابر کردن
   }
 
+  // اگر مجموع قابل تقسیم بر 10 باشد، شماره کارت معتبر است
   return sum % 10 === 0;
-}
-
-function validateCard() {
-  const cardNumber = document
-    .getElementById('cardInput')
-    .value.replace(/\s+/g, '');
-
-  if (!/^\d{16}$/.test(cardNumber)) {
-    return false;
-  }
-
-  if (luhnCheck(cardNumber)) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 function validateCVV2(cvv) {
@@ -139,6 +138,23 @@ function validateCVV2(cvv) {
     return true;
   }
 }
+
+form.addEventListener('keydown', e => {
+  // e.preventDefault();
+  let errors = [];
+  if (!validateCardNumber(cardInput.value)) {
+    errors.push('شماره کارت معتبر نیست.');
+  } else {
+  }
+  // console.log(mm, yy);
+
+  if (!validateExpirationDate()) {
+    errors.push('شماره کارت معتبر نیست.');
+  } else {
+  }
+});
+const mm = exprationInput.value.slice(0, 2);
+const yy = exprationInput.value.slice(4, 5);
 
 const phoneInput = document.getElementById('phoneInput');
 const phoneValid = document.getElementById('phoneValid');

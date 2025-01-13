@@ -656,10 +656,6 @@ video {
   width: 100%;
 }
 
-.w-5 {
-  width: 1.25rem;
-}
-
 .\!max-w-\[20rem\] {
   max-width: 20rem !important;
 }
@@ -734,16 +730,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded-r-xl {
-  border-top-right-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-}
-
-.rounded-l-xl {
-  border-top-left-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
-}
-
 .rounded-l-lg {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -781,6 +767,11 @@ video {
   background-color: rgb(21 187 9 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#E7E7E7\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 231 231 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[\#F6F6F6\] {
   --tw-bg-opacity: 1;
   background-color: rgb(246 246 246 / var(--tw-bg-opacity, 1));
@@ -808,32 +799,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-\[\] {
-  background-color: ;
-}
-
-.bg-\[\#E7E7E7\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(231 231 231 / var(--tw-bg-opacity, 1));
-}
-
-.bg-\[776363\] {
-  background-color: 776363;
-}
-
-.bg-\[\#776363\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(119 99 99 / var(--tw-bg-opacity, 1));
-}
-
-.bg-\[\#\] {
-  background-color: #;
-}
-
-.bg-\[\#\#E7E7E7\] {
-  background-color: ##E7E7E7;
 }
 
 .p-1 {
@@ -867,11 +832,6 @@ video {
   padding-bottom: 0px;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
 .pt-2 {
   padding-top: 0.5rem;
 }
@@ -894,6 +854,14 @@ video {
   font-size: 10px;
 }
 
+.text-\[11px\] {
+  font-size: 11px;
+}
+
+.text-\[12px\] {
+  font-size: 12px;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -907,14 +875,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-\[12px\] {
-  font-size: 12px;
-}
-
-.text-\[11px\] {
-  font-size: 11px;
 }
 
 .text-\[\#776363\] {
@@ -935,14 +895,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-\[\] {
-  color: ;
-}
-
-.text-\[\#\] {
-  color: #;
 }
 
 .outline-none {
