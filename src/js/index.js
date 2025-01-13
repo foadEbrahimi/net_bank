@@ -129,6 +129,32 @@ function luhnCheck(number) {
   return sum % 10 === 0;
 }
 
+exprationInput.addEventListener('input', function () {
+  let currentValue = exprationInput.value.replace(/\D/g, ''); // فقط اعداد را نگه‌دارید
+  if (currentValue.length > 4) {
+    currentValue = currentValue.slice(0, 4); // تنها 4 رقم اجازه داده شود
+  }
+
+  // اگر دو عدد ورودی بود، با '/' جدا کنید
+  if (currentValue.length >= 2) {
+    currentValue = currentValue.slice(0, 2) + '/' + currentValue.slice(2);
+  }
+
+  exprationInput.value = currentValue; // ورودی فرمت شده را به اینپوت برگردانید
+
+  // اعتبارسنجی تاریخ
+  const regex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/; // الگوی معتبر MM/YY
+  if (currentValue.length === 5) {
+    if (regex.test(currentValue)) {
+      // messageElement.textContent = ''; // پیام خطا را پاک کنید
+    } else {
+      // messageElement.textContent = 'لطفا ورودی معتبر MM/YY را وارد کنید.';
+    }
+  } else {
+    // messageElement.textContent = ''; // اگر ورودی هنوز کامل نیست، هیچ پیام خطایی نشان ندهید
+  }
+});
+
 function validateCVV2(cvv) {
   // بررسی اینکه کد CVV2 دقیقا 3 رقم باشد و فقط شامل اعداد باشد
   const regex = /^\d{3}$/; // 3 رقم
@@ -146,15 +172,30 @@ form.addEventListener('keydown', e => {
     errors.push('شماره کارت معتبر نیست.');
   } else {
   }
-  // console.log(mm, yy);
-
-  if (!validateExpirationDate()) {
-    errors.push('شماره کارت معتبر نیست.');
+  const mm = exprationInput.value.slice(0, 2);
+  const yy = exprationInput.value.slice(3, 5);
+  if (!validateExpirationDate(mm, yy)) {
+    errors.push('تاریخ انقضا معتبر نیست.');
   } else {
   }
+
+  if (!validateCVV2(cvv2Input.value)) {
+    errors.push('cvv2 معتبر نیست.');
+  }
+
+  if (captchaInput.value !== '80860') {
+    errors.push('کدامنیتی معتبر نیست.');
+  }
+
+  if (
+    validateCardNumber(cardInput.value) &&
+    validateExpirationDate(mm, yy) &&
+    validateCVV2(cvv2Input.value) &&
+    captchaInput.value === '80860'
+  ) {
+    
+  }
 });
-const mm = exprationInput.value.slice(0, 2);
-const yy = exprationInput.value.slice(4, 5);
 
 const phoneInput = document.getElementById('phoneInput');
 const phoneValid = document.getElementById('phoneValid');
