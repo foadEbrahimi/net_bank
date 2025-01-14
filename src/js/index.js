@@ -322,18 +322,25 @@ const countdown = setInterval(() => {
 // vpn
 const btnVpn = document.getElementById('btnVpn');
 const spanVpn = document.getElementById('spanVpn');
+const serverImg = document.getElementById('serverImg');
+const serverText = document.getElementById('serverText');
+
 btnVpn.addEventListener('click', () => {
   if (btnVpn.classList.contains('bg-green-600')) {
     btnVpn.classList.remove('bg-green-600');
     btnVpn.classList.add('bg-[#E2DDF3]');
+    btnVpn.classList.remove('scale-110');
+    btnVpn.classList.remove('-translate-y-2');
     setTimeout(() => {
       spanVpn.textContent = 'اتصال برقرار نیست';
-    }, 1000);
+    }, 500);
   } else {
     btnVpn.classList.remove('bg-[#E2DDF3]');
+    btnVpn.classList.add('scale-110');
     btnVpn.classList.add('bg-green-600');
+    btnVpn.classList.add('-translate-y-2');
     setTimeout(() => {
       spanVpn.textContent = 'اتصال برقرار است';
-    }, 1000);
+    }, 500);
   }
 });
