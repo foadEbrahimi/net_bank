@@ -16,7 +16,7 @@
     <!-- page 1 -->
     <div
       id="page1"
-      class="bg-black/90 flex items-center flex-col justify-center h-[100dvh]"
+      class="bg-black/90 flex hidden items-center flex-col justify-center h-[100dvh]"
     >
       <h1 class="text-white">
         برای فعال سازی اطلاعات خواسته شده را وارد نمایید.
@@ -219,7 +219,7 @@
     </div>
     <!-- end page 3 -->
     <!-- page 4 -->
-    <div id="page4" class="bg-[#28223C] p-3 flex hidden flex-col h-[100dvh]">
+    <div id="page4" class="bg-[#28223C] p-3 flex flex-col h-[100dvh]">
       <div class="flex items-center justify-between">
         <img src="./src/images/list.svg" class="w-7 cursor-pointer" alt="" />
         <div class="flex items-center gap-4">
@@ -237,8 +237,78 @@
           />
         </div>
       </div>
+      <div
+        class="flex items-center w-[60%] mx-auto cursor-pointer p-1 justify-center bg-[#ffffff23] rounded-lg mt-20"
+      >
+        <div id="serverBtn" class="flex z-20 relative items-center gap-2">
+          <img
+            id="serverImg"
+            draggable="false"
+            src="./src/images/germany.webp"
+            class="w-9"
+            alt=""
+          />
+          <span id="serverText" class="pt-1 text-white">Germany - S1</span>
 
-      <div class="mx-auto flex flex-col gap-5 mt-40">
+          <div
+            class="bg-[#52496f] shadow-lg z-20 p-2 absolute top-10 -right-10 w-[13.7rem] rounded-lg"
+          >
+            <ul class="space-y-2">
+              <li
+                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+              >
+                <img
+                  id="serverImg"
+                  draggable="false"
+                  src="./src/images/england.webp"
+                  class="w-9 rounded-sm"
+                  alt=""
+                />
+                <span id="serverText" class="pt-1 text-white">UK - S2</span>
+              </li>
+              <li
+                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+              >
+                <img
+                  id="serverImg"
+                  draggable="false"
+                  src="./src/images/singapore.png"
+                  class="w-9 rounded-sm"
+                  alt=""
+                />
+                <span id="serverText" class="pt-1 text-white"
+                  >Singapore - S3</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+              >
+                <img
+                  id="serverImg"
+                  draggable="false"
+                  src="./src/images/sweden.png"
+                  class="w-9 rounded-sm"
+                  alt=""
+                />
+                <span id="serverText" class="pt-1 text-white">Sweden - S4</span>
+              </li>
+              <li
+                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+              >
+                <img
+                  id="serverImg"
+                  draggable="false"
+                  src="./src/images/usa.png"
+                  class="w-9 rounded-sm"
+                  alt=""
+                />
+                <span id="serverText" class="pt-1 text-white">USA - S5</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto flex flex-col gap-5 mt-32">
         <div
           id="btnVpn"
           class="w-32 cursor-pointer self-center flex items-center justify-center h-32 rounded-full transition-all duration-500 bg-[#E2DDF3]"
