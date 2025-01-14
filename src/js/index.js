@@ -326,28 +326,84 @@ const serverBtn = document.getElementById('serverBtn');
 const serversDiv = document.getElementById('serversDiv');
 const serverImg = document.getElementById('serverImg');
 const serverText = document.getElementById('serverText');
-const serverItem = document.getElementById('serverItem');
+const serverItem = document.querySelectorAll('.serverItem');
 
 btnVpn.addEventListener('click', () => {
-  if (btnVpn.classList.contains('bg-green-600')) {
-    btnVpn.classList.remove('bg-green-600');
-    btnVpn.classList.add('bg-[#E2DDF3]');
-    btnVpn.classList.remove('scale-110');
-    btnVpn.classList.remove('-translate-y-2');
-    setTimeout(() => {
-      spanVpn.textContent = 'اتصال برقرار نیست';
-    }, 500);
+  if (serverImg.getAttribute('src') === '') {
+    Toastify({
+      text: 'لطفا یک سرور انتخاب کنید.',
+      duration: 2000,
+      newWindow: true,
+      close: true,
+      gravity: 'top', // `top` or `bottom`
+      position: 'right', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        fontSize: '1rem',
+        fontWeight: '600',
+        background: 'red',
+        width: '250px',
+        minWidth: '250px',
+        display: 'flex',
+        justifyContent: 'space-between',
+      },
+    }).showToast();
   } else {
-    btnVpn.classList.remove('bg-[#E2DDF3]');
-    btnVpn.classList.add('scale-110');
-    btnVpn.classList.add('bg-green-600');
-    btnVpn.classList.add('-translate-y-2');
-    setTimeout(() => {
-      spanVpn.textContent = 'اتصال برقرار است';
-    }, 500);
+    if (btnVpn.classList.contains('bg-green-600')) {
+      btnVpn.classList.add('bg-[#E2DDF3]');
+      btnVpn.classList.remove(
+        'bg-green-600',
+        'scale-110',
+        '-translate-y-2',
+        'shadow-2xl',
+        'shadow-green-500'
+      );
+      setTimeout(() => {
+        spanVpn.textContent = 'اتصال برقرار نیست';
+      }, 500);
+    } else {
+      btnVpn.classList.remove('bg-[#E2DDF3]');
+      btnVpn.classList.add(
+        'scale-110',
+        'bg-green-600',
+        '-translate-y-2',
+        'shadow-2xl',
+        'shadow-green-500'
+      );
+      setTimeout(() => {
+        spanVpn.textContent = 'اتصال برقرار است';
+      }, 500);
+    }
   }
 });
 
 serverBtn.addEventListener('click', () => {
   serversDiv.classList.toggle('hidden');
+});
+
+window.addEventListener('click', function (event) {
+  if (!serverBtn.contains(event.target) && !serversDiv.contains(event.target)) {
+    serversDiv.classList.add('hidden');
+  }
+});
+
+serverItem.forEach(serv => {
+  let currentServer = {};
+  serv.addEventListener('click', () => {
+    const img = serv.firstElementChild.getAttribute('src');
+    const text = serv.lastElementChild.textContent;
+    currentServer = {
+      img,
+      text,
+    };
+    if (serv.lastElementChild.textContent === currentServer.text) {
+      serverItem.forEach(serv => {
+        serv.classList.remove('bg-[#161225]');
+      });
+      serv.classList.add('bg-[#161225]');
+      serverImg.classList.remove('hidden');
+      serverImg.setAttribute('src', currentServer.img);
+      serverText.textContent = currentServer.text;
+    }
+  });
 });

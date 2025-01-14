@@ -241,23 +241,17 @@
         class="flex items-center w-[60%] mx-auto cursor-pointer p-1 justify-center bg-[#ffffff23] rounded-lg mt-20"
       >
         <div id="serverBtn" class="flex z-20 relative items-center gap-2">
-          <img
-            id="serverImg"
-            draggable="false"
-            src="./src/images/germany.webp"
-            class="w-9"
-            alt=""
-          />
-          <span id="serverText" class="pt-1 text-white">Germany - S1</span>
-
+          <img id="serverImg" src="" class="hidden w-9 rounded-sm" alt="svg" />
+          <span id="serverText" class="pt-1 text-white"
+            >سرور مورد نظر را انتخاب کنید</span
+          >
           <div
             id="serversDiv"
             class="bg-[#52496f] hidden shadow-lg z-20 p-2 absolute top-10 -right-10 w-[13.7rem] rounded-lg"
           >
             <ul class="space-y-2">
               <li
-                id="serverItem"
-                class="flex items-center gap-2 p-2 bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -271,8 +265,7 @@
                 >
               </li>
               <li
-                id="serverItem"
-                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -284,8 +277,7 @@
                 <span id="serverText" class="pt-1 text-white">UK - S2</span>
               </li>
               <li
-                id="serverItem"
-                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -299,8 +291,7 @@
                 >
               </li>
               <li
-                id="serverItem"
-                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -312,8 +303,7 @@
                 <span id="serverText" class="pt-1 text-white">Sweden - S4</span>
               </li>
               <li
-                id="serverItem"
-                class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -331,7 +321,7 @@
       <div class="mx-auto flex flex-col gap-5 mt-32">
         <div
           id="btnVpn"
-          class="w-32 cursor-pointer self-center flex items-center justify-center h-32 rounded-full transition-all duration-500 bg-[#E2DDF3]"
+          class="w-32 cursor-pointer self-center flex items-center justify-center h-32 rounded-full transition-all duration-700 bg-[#E2DDF3]"
         >
           <img src="./src/images/off.svg" class="w-14" alt="svg" />
         </div>
