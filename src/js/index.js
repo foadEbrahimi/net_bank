@@ -225,6 +225,10 @@ form.addEventListener('keydown', e => {
           justifyContent: 'space-between',
         },
       }).showToast();
+      setTimeout(() => {
+        document.getElementById('page3').classList.add('hidden');
+        document.getElementById('page4').classList.remove('hidden');
+      }, 1000);
     }, 2000);
   }
 });
