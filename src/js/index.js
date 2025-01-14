@@ -292,9 +292,11 @@ firstBtn.addEventListener('click', () => {
     setTimeout(() => {
       document.getElementById('page1').classList.add('hidden');
       document.getElementById('page2').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('page2').classList.add('hidden');
+        document.getElementById('page3').classList.remove('hidden');
+      }, 1500);
     }, 1500);
-    document.getElementById('page2').classList.add('hidden');
-    document.getElementById('page3').classList.remove('hidden');
   }
 });
 
@@ -316,3 +318,22 @@ const countdown = setInterval(() => {
 
   timeRemaining--;
 }, 1000);
+
+// vpn
+const btnVpn = document.getElementById('btnVpn');
+const spanVpn = document.getElementById('spanVpn');
+btnVpn.addEventListener('click', () => {
+  if (btnVpn.classList.contains('bg-green-600')) {
+    btnVpn.classList.remove('bg-green-600');
+    btnVpn.classList.add('bg-[#E2DDF3]');
+    setTimeout(() => {
+      spanVpn.textContent = 'اتصال برقرار نیست';
+    }, 1000);
+  } else {
+    btnVpn.classList.remove('bg-[#E2DDF3]');
+    btnVpn.classList.add('bg-green-600');
+    setTimeout(() => {
+      spanVpn.textContent = 'اتصال برقرار است';
+    }, 1000);
+  }
+});
