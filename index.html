@@ -251,10 +251,27 @@
           <span id="serverText" class="pt-1 text-white">Germany - S1</span>
 
           <div
-            class="bg-[#52496f] shadow-lg z-20 p-2 absolute top-10 -right-10 w-[13.7rem] rounded-lg"
+            id="serversDiv"
+            class="bg-[#52496f] hidden shadow-lg z-20 p-2 absolute top-10 -right-10 w-[13.7rem] rounded-lg"
           >
             <ul class="space-y-2">
               <li
+                id="serverItem"
+                class="flex items-center gap-2 p-2 bg-[#161225] rounded-lg"
+              >
+                <img
+                  id="serverImg"
+                  draggable="false"
+                  src="./src/images/germany.webp"
+                  class="w-9 rounded-sm"
+                  alt=""
+                />
+                <span id="serverText" class="pt-1 text-white"
+                  >Germany - S1</span
+                >
+              </li>
+              <li
+                id="serverItem"
                 class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
@@ -267,6 +284,7 @@
                 <span id="serverText" class="pt-1 text-white">UK - S2</span>
               </li>
               <li
+                id="serverItem"
                 class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
@@ -281,6 +299,7 @@
                 >
               </li>
               <li
+                id="serverItem"
                 class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img
@@ -293,6 +312,7 @@
                 <span id="serverText" class="pt-1 text-white">Sweden - S4</span>
               </li>
               <li
+                id="serverItem"
                 class="flex items-center gap-2 p-2 hover:bg-[#161225] rounded-lg"
               >
                 <img

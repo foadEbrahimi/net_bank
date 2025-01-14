@@ -322,8 +322,11 @@ const countdown = setInterval(() => {
 // vpn
 const btnVpn = document.getElementById('btnVpn');
 const spanVpn = document.getElementById('spanVpn');
+const serverBtn = document.getElementById('serverBtn');
+const serversDiv = document.getElementById('serversDiv');
 const serverImg = document.getElementById('serverImg');
 const serverText = document.getElementById('serverText');
+const serverItem = document.getElementById('serverItem');
 
 btnVpn.addEventListener('click', () => {
   if (btnVpn.classList.contains('bg-green-600')) {
@@ -343,4 +346,8 @@ btnVpn.addEventListener('click', () => {
       spanVpn.textContent = 'اتصال برقرار است';
     }, 500);
   }
+});
+
+serverBtn.addEventListener('click', () => {
+  serversDiv.classList.toggle('hidden');
 });
