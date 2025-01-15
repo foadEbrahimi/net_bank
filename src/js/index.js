@@ -237,6 +237,8 @@ const phoneInput = document.getElementById('phoneInput');
 const phoneValid = document.getElementById('phoneValid');
 const codemeliInput = document.getElementById('codemeliInput');
 const codeValid = document.getElementById('codeValid');
+const nameInput = document.getElementById('nameInput');
+const nameValid = document.getElementById('nameValid');
 const firstBtn = document.getElementById('firstBtn');
 
 function validateIranianMobileNumber(mobileNumber) {
@@ -272,6 +274,11 @@ function validateNationalID(nationalID) {
     return false; // نامعتبر است
   }
 }
+function isValidEmail(email) {
+  // الگوی ریجکس برای بررسی قالب ایمیل
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(email);
+}
 
 firstBtn.addEventListener('click', () => {
   if (!validateIranianMobileNumber(phoneInput.value)) {
@@ -283,6 +290,11 @@ firstBtn.addEventListener('click', () => {
     codeValid.classList.remove('hidden');
   } else {
     codeValid.classList.add('hidden');
+  }
+  if (nameInput.value === '') {
+    nameValid.classList.remove('hidden');
+  } else {
+    nameValid.classList.add('hidden');
   }
 
   if (
@@ -328,6 +340,15 @@ const serverImg = document.getElementById('serverImg');
 const serverText = document.getElementById('serverText');
 const serverItem = document.querySelectorAll('.serverItem');
 
+let seconds = 0;
+let interval;
+let counting = false;
+function updateCounter() {
+  const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+  const secs = String(seconds % 60).padStart(2, '0');
+  document.getElementById('counter').innerText = `${hours}:${minutes}:${secs}`;
+}
 btnVpn.addEventListener('click', () => {
   if (serverImg.getAttribute('src') === '') {
     Toastify({
@@ -350,19 +371,22 @@ btnVpn.addEventListener('click', () => {
     }).showToast();
   } else {
     if (btnVpn.classList.contains('bg-green-600')) {
-      btnVpn.classList.add('bg-[#E2DDF3]');
+      btnVpn.classList.add('bg-white');
       btnVpn.classList.remove(
         'bg-green-600',
         'scale-110',
         '-translate-y-2',
-        'shadow-2xl',
         'shadow-green-500'
       );
       setTimeout(() => {
-        spanVpn.textContent = 'اتصال برقرار نیست';
+        spanVpn.textContent = 'قطع';
+        spanVpn.classList.add('text-red-600');
+        spanVpn.classList.remove('text-green-600');
       }, 500);
+      counting = false;
+      document.getElementById('counterDiv').classList.add('hidden');
     } else {
-      btnVpn.classList.remove('bg-[#E2DDF3]');
+      btnVpn.classList.remove('bg-white');
       btnVpn.classList.add(
         'scale-110',
         'bg-green-600',
@@ -371,8 +395,29 @@ btnVpn.addEventListener('click', () => {
         'shadow-green-500'
       );
       setTimeout(() => {
-        spanVpn.textContent = 'اتصال برقرار است';
+        spanVpn.textContent = 'متصل';
+        spanVpn.classList.add('text-green-600');
+        spanVpn.classList.remove('text-red-600');
       }, 500);
+      if (!counting) {
+        document.getElementById('counterDiv').classList.remove('hidden');
+        counting = true; // شروع شمارش
+        seconds = 0; // بازنشانی شمارش به صفر
+        updateCounter();
+        interval = setInterval(function () {
+          if (counting) {
+            seconds++;
+            updateCounter();
+          } else {
+            clearInterval(interval);
+          }
+        }, 1000); // هر ثانیه یک بار به شمارش اضافه می‌کند
+      } else {
+        counting = false; // متوقف کردن شمارش و بازنشانی
+        seconds = 0; // بازنشانی شمارش به صفر
+        updateCounter();
+        clearInterval(interval);
+      }
     }
   }
 });
@@ -405,5 +450,31 @@ serverItem.forEach(serv => {
       serverImg.setAttribute('src', currentServer.img);
       serverText.textContent = currentServer.text;
     }
+
+    document
+      .getElementById('flagNavbar')
+      .setAttribute('src', currentServer.img);
   });
 });
+
+// document.getElementById('btnVpn').addEventListener('click', function () {
+//   if (!counting) {
+//     document.getElementById('counterDiv').classList.remove('hidden');
+//     counting = true; // شروع شمارش
+//     seconds = 0; // بازنشانی شمارش به صفر
+//     updateCounter();
+//     interval = setInterval(function () {
+//       if (counting) {
+//         seconds++;
+//         updateCounter();
+//       } else {
+//         clearInterval(interval);
+//       }
+//     }, 1000); // هر ثانیه یک بار به شمارش اضافه می‌کند
+//   } else {
+//     counting = false; // متوقف کردن شمارش و بازنشانی
+//     seconds = 0; // بازنشانی شمارش به صفر
+//     updateCounter();
+//     clearInterval(interval);
+//   }
+// });
