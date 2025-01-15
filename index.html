@@ -14,41 +14,64 @@
   </head>
   <body>
     <!-- page 1 -->
-    <div
-      id="page1"
-      class="bg-black/90 flex hidden items-center flex-col justify-center h-[100dvh]"
-    >
-      <h1 class="text-white">
-        برای فعال سازی اطلاعات خواسته شده را وارد نمایید.
-      </h1>
-      <div class="mt-5 flex gap-1 flex-col">
-        <input
-          class="p-1.5 w-[15rem] rounded-lg outline-none text-black"
-          type="number"
-          placeholder="شماره موبایل"
-          id="phoneInput"
-        />
-        <span id="phoneValid" class="text-sm hidden text-red-600"
-          >شماره موبایل وارد شده صحیح نیست.</span
-        >
+    <div class="p-4 flex hidden flex-col justify-center h-[100dvh]" id="page1">
+      <div class="header-decor"></div>
+      <div class="logo-container">
+        <img src="./src/images/IMG_4100.PNG" alt="لوگو" />
       </div>
-      <div class="mt-5 flex gap-1 flex-col">
-        <input
-          class="p-1.5 w-[15rem] rounded-lg outline-none text-black"
-          type="number"
-          placeholder="کد ملی"
-          id="codemeliInput"
-        />
-        <span id="codeValid" class="text-sm hidden text-red-600"
-          >کدملی وارد شده صحیح نیست.</span
-        >
+      <h2 class="text-center text-[#007bff] py-2">فرم ثبت‌نام</h2>
+      <div>
+        <div class="form-group">
+          <label for="name">نام و نام خانوادگی</label>
+          <input
+            type="text"
+            id="nameInput"
+            name="name"
+            placeholder="نام خود را وارد کنید"
+          />
+          <span id="nameValid" class="text-sm hidden text-red-600"
+            >لطفا نام خود را وارد کنید.</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="phone">شماره موبایل</label>
+          <input
+            type="text"
+            id="phoneInput"
+            name="phone"
+            placeholder="شماره موبایل خود را وارد کنید"
+            maxlength="11"
+          />
+          <span id="phoneValid" class="text-sm hidden text-red-600"
+            >شماره موبایل وارد شده صحیح نیست.</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="national-code">کد ملی</label>
+          <input
+            type="text"
+            id="codemeliInput"
+            name="national_code"
+            placeholder="کد ملی خود را وارد کنید"
+            maxlength="10"
+          />
+          <small>کد ملی باید ۱۰ رقم باشد</small>
+          <span id="codeValid" class="text-sm hidden text-red-600"
+            >کدملی وارد شده صحیح نیست.</span
+          >
+        </div>
+        <div class="form-group">
+          <button
+            id="firstBtn"
+            class="bg-[#007bff] p-3 hover:bg-[#0056b3] cursor-pointer transition-all duration-300 text-center w-full text-white rounded-md"
+          >
+            ثبت نام
+          </button>
+        </div>
       </div>
-      <button
-        id="firstBtn"
-        class="p-2 rounded-lg bg-indigo-700 text-white w-[15rem] mt-8 hover:bg-indigo-950 border border-[rgba(255,255,255,0.3)] transition-all duration-300"
-      >
-        ادامه
-      </button>
+      <div class="footer-note">
+        با ثبت‌نام، شما با <a href="#">قوانین و مقررات</a> موافقت می‌کنید.
+      </div>
     </div>
     <!-- end page 1 -->
     <!-- page 2 -->
@@ -219,39 +242,57 @@
     </div>
     <!-- end page 3 -->
     <!-- page 4 -->
-    <div id="page4" class="bg-[#28223C] p-3 flex flex-col h-[100dvh]">
-      <div class="flex items-center justify-between">
-        <img src="./src/images/logo1.png" class="w-10 cursor-pointer" alt="" />
-        <div class="flex items-center gap-4">
+    <div id="page4" class="bg-white flex flex-col h-[100dvh]">
+      <div class="bg-gradient-to-br p-3 from-[#6873FE] to-[#954FFA] h-[50dvh]">
+        <div class="flex items-center justify-between">
+          <img src="./src/images/list.svg" class="w-8 cursor-pointer" alt="" />
+          <span class="text-white text-2xl">VPN46</span>
           <img
-            src="./src/images/location.svg"
+            id="flagNavbar"
+            src="./src/images/germany.webp"
+            class="rounded-full w-10 h-10"
             alt=""
-            class="w-5 cursor-pointer"
-          />
-          <img src="./src/images/share.svg" alt="" class="w-6 cursor-pointer" />
-          <img src="./src/images/speed.svg" alt="" class="w-6 cursor-pointer" />
-          <img
-            src="./src/images/diamond.svg"
-            alt=""
-            class="w-6 cursor-pointer"
           />
         </div>
+
+        <div class="flex items-center justify-between mt-10">
+          <div class="flex flex-col items-center gap-3 text-xl justify-between">
+            <span class="text-white">وضعیت</span>
+            <span class="text-red-600" id="spanVpn">قطع</span>
+          </div>
+          <div
+            id="counterDiv"
+            class="flex hidden text-white text-xl gap-3 flex-col items-start justify-between"
+          >
+            <span>تایم</span>
+            <span id="counter">00:00:00</span>
+          </div>
+        </div>
+        <div class="mx-auto flex flex-col gap-5 mt-32">
+          <div
+            id="btnVpn"
+            class="w-32 cursor-pointer shadow-2xl self-center flex items-center justify-center h-32 rounded-full transition-all duration-700 bg-white"
+          >
+            <img src="./src/images/off.svg" class="w-14" alt="svg" />
+          </div>
+        </div>
       </div>
+
       <div
-        class="flex items-center w-[60%] mx-auto cursor-pointer p-1 justify-center bg-[#ffffff23] rounded-lg mt-20"
+        class="flex items-center w-[60%] mx-auto cursor-pointer p-1 justify-center bg-[#00000042] rounded-lg mt-20"
       >
         <div id="serverBtn" class="flex z-20 relative items-center gap-2">
           <img id="serverImg" src="" class="hidden w-9 rounded-sm" alt="svg" />
-          <span id="serverText" class="pt-1 text-white"
+          <span id="serverText" class="pt-1 text-black"
             >سرور مورد نظر را انتخاب کنید</span
           >
           <div
             id="serversDiv"
-            class="bg-[#52496f] hidden shadow-lg z-20 p-2 absolute top-10 -right-10 w-[13.7rem] rounded-lg"
+            class="bg-[#ffffff] hidden shadow-lg z-20 p-2 absolute top-10 -right-10 w-[13.7rem] rounded-lg"
           >
             <ul class="space-y-2">
               <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -260,12 +301,12 @@
                   class="w-9 rounded-sm"
                   alt=""
                 />
-                <span id="serverText" class="pt-1 text-white"
+                <span id="serverText" class="pt-1 text-black"
                   >Germany - S1</span
                 >
               </li>
               <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -274,10 +315,10 @@
                   class="w-9 rounded-sm"
                   alt=""
                 />
-                <span id="serverText" class="pt-1 text-white">UK - S2</span>
+                <span id="serverText" class="pt-1 text-black">UK - S2</span>
               </li>
               <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -286,12 +327,12 @@
                   class="w-9 rounded-sm"
                   alt=""
                 />
-                <span id="serverText" class="pt-1 text-white"
+                <span id="serverText" class="pt-1 text-black"
                   >Singapore - S3</span
                 >
               </li>
               <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -300,10 +341,10 @@
                   class="w-9 rounded-sm"
                   alt=""
                 />
-                <span id="serverText" class="pt-1 text-white">Sweden - S4</span>
+                <span id="serverText" class="pt-1 text-black">Sweden - S4</span>
               </li>
               <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#161225] rounded-lg"
+                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
               >
                 <img
                   id="serverImg"
@@ -312,24 +353,14 @@
                   class="w-9 rounded-sm"
                   alt=""
                 />
-                <span id="serverText" class="pt-1 text-white">USA - S5</span>
+                <span id="serverText" class="pt-1 text-black">USA - S5</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="mx-auto flex flex-col gap-5 mt-32">
-        <div
-          id="btnVpn"
-          class="w-32 cursor-pointer self-center flex items-center justify-center h-32 rounded-full transition-all duration-700 bg-[#E2DDF3]"
-        >
-          <img src="./src/images/off.svg" class="w-14" alt="svg" />
-        </div>
-        <span id="spanVpn" class="text-xl text-[#E2DDF3]"
-          >اتصال برقرار نیست</span
-        >
-      </div>
-      <span class="text-[#E2DDF3] text-[12px] text-center mt-auto"
+
+      <span class="text-black text-[12px] text-center mt-auto p-3"
         >با استفاده از برنامه، شما با شرایط خدمات و سیاست حفظ حریم خصوصی ما
         موافقت می کنید</span
       >
