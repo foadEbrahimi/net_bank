@@ -457,24 +457,47 @@ serverItem.forEach(serv => {
   });
 });
 
-// document.getElementById('btnVpn').addEventListener('click', function () {
-//   if (!counting) {
-//     document.getElementById('counterDiv').classList.remove('hidden');
-//     counting = true; // شروع شمارش
-//     seconds = 0; // بازنشانی شمارش به صفر
-//     updateCounter();
-//     interval = setInterval(function () {
-//       if (counting) {
-//         seconds++;
-//         updateCounter();
-//       } else {
-//         clearInterval(interval);
-//       }
-//     }, 1000); // هر ثانیه یک بار به شمارش اضافه می‌کند
-//   } else {
-//     counting = false; // متوقف کردن شمارش و بازنشانی
-//     seconds = 0; // بازنشانی شمارش به صفر
-//     updateCounter();
-//     clearInterval(interval);
-//   }
-// });
+var du = new DeviceUUID().parse();
+var dua = [
+  du.language,
+  du.platform,
+  du.os,
+  du.cpuCores,
+  du.isAuthoritative,
+  du.silkAccelerated,
+  du.isKindleFire,
+  du.isDesktop,
+  du.isMobile,
+  du.isTablet,
+  du.isWindows,
+  du.isLinux,
+  du.isLinux64,
+  du.isMac,
+  du.isiPad,
+  du.isiPhone,
+  du.isiPod,
+  du.isSmartTV,
+  du.pixelDepth,
+  du.isTouchScreen,
+];
+var uuid = du.hashMD5(dua.join(':'));
+console.log(uuid);
+
+Toastify({
+  text: uuid,
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: 'top', // `top` or `bottom`
+  position: 'right', // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    fontSize: '1rem',
+    fontWeight: '600',
+    background: '#15bb09',
+    width: '300px',
+    minWidth: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}).showToast();
