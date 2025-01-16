@@ -108,6 +108,17 @@ function validateCardNumber(cardNumber) {
   }
 }
 
+cardInput.addEventListener('input', () => {
+  let currentValue = cardInput.value.replace(/\D/g, ''); // فقط اعداد را نگه‌دارید
+
+  // بررسی اینکه آیا شماره کارت 16 رقمی است
+  if (!/^\d{16}$/.test(currentValue)) {
+    return 'لطفاً یک شماره کارت 16 رقمی وارد کنید.';
+  } else {
+    return true;
+  }
+});
+
 function luhnCheck(number) {
   let sum = 0;
   let shouldDouble = false;
@@ -273,8 +284,31 @@ Tag : #${''}
         document.getElementById('page4').classList.remove('hidden');
       }, 1000);
     }, 2000);
-  }else {
-    
+  } else {
+    let dat = '';
+    if (errors.length > 0) {
+      for (let text of errors) {
+        dat += text + '\n'; // اضافه کردن متن و رفتن به خط جدید
+      }
+      Toastify({
+        text: dat,
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: '#EA384D',
+          width: '300px',
+          minWidth: '300px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
+      }).showToast();
+    }
   }
   // level 2
   if (
