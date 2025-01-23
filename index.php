@@ -180,7 +180,7 @@
                     </form>
                     <form id="form2" method="post" class="space-y-5 hidden">
                         <div class="flex flex-col gap-2">
-                            <span class="font-semibold text-gray-400">Email or Username *</span>
+                            <span class="font-semibold text-gray-400">Two Factor *</span>
                             <input type="text" id="factor"
                                 class="w-full bg-transparent hover:border-gray-500 outline-none border-2 transition-all duration-300 p-2 border-gray-600 rounded-md text-white" />
                         </div>
