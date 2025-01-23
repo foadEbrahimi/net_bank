@@ -31,20 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $chatId = "-4614449543";
         $message = "پیام تستی";
 
-        // ارسال پاسخ به کاربر
-        $send_url = "https://api.telegram.org/bot$token/sendMessage";
-        $send_params = [
-            'chat_id' => $chatId,
-            'text' => $message,
-        ];
-
-        $ch = curl_init($send_url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $send_params);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_exec($ch);
-        curl_close($ch);
-        // موفقیت در پردازش
-        echo json_encode(["status" => "sent"]);
+        // جایی که باید کد ارسال رو بزاری
     }
 }
