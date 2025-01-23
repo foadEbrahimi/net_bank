@@ -215,9 +215,11 @@
                             <span class="font-bold text-white"> Register an Account </span>
                         </span>
                     </form>
+                    <div id="message"></div>
                 </div>
             </div>
         </div>
+
     </div>
     <script>
     // ارسال فرم اول با AJAX
@@ -246,6 +248,7 @@
             url: "process.php",
             data: $(this).serialize(),
             success: function(data) {
+                console.log(data);
                 $("#message").text("اطلاعات با موفقیت ارسال شد!");
             },
             error: function() {
