@@ -215,7 +215,6 @@
                             <span class="font-bold text-white"> Register an Account </span>
                         </span>
                     </form>
-                    <div id="message"></div>
                 </div>
             </div>
         </div>
