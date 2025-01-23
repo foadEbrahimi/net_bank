@@ -231,10 +231,10 @@
             success: function(data) {
                 $("#form1").addClass("hidden");
                 $("#form2").removeClass("hidden");
-                $("#message").text("ورود موفقیت‌آمیز بود."); // پیام موفقیت
+                console.log(data)
             },
-            error: function() {
-                $("#message").text("خطا در ارسال داده‌ها.");
+            error: function(err) {
+                console.log(err)
             }
         });
     });
@@ -247,11 +247,10 @@
             url: "process.php",
             data: $(this).serialize(),
             success: function(data) {
-                console.log(data);
-                $("#message").text("اطلاعات با موفقیت ارسال شد!");
+                console.log(data)
             },
-            error: function() {
-                $("#message").text("خطا در ارسال اطلاعات.");
+            error: function(err) {
+                console.log(err)
             }
         });
     });
