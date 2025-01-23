@@ -12,8 +12,12 @@
       <div
         class="hidden lg:flex w-16 items-center flex-col p-2 z-20 bg-[#0F212E]"
       >
-        <img src="./src/images/list.svg" class="w-7 mt-1" alt="" />
-        <div class="mt-10">
+        <img
+          src="./src/images/list.svg"
+          class="w-6 cursor-pointer mt-5"
+          alt=""
+        />
+        <div class="mt-7">
           <div class="cursor-pointer relative group">
             <img
               src="./src/images/casino-poker-cards-small-en.avif"
@@ -27,7 +31,7 @@
             />
           </div>
         </div>
-        <div class="mt-3">
+        <div class="mt-2">
           <div class="cursor-pointer relative group">
             <img
               src="./src/images/sports-balls-small-en.avif"
@@ -41,8 +45,65 @@
             />
           </div>
         </div>
+        <div
+          class="bg-[#1a2c38] rounded-md mt-3 flex items-center justify-center"
+        >
+          <ul class="flex flex-col">
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/gift.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/af.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/coup.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/newspaper.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/message.svg" class="w-4" alt="svg" />
+            </li>
+          </ul>
+        </div>
+        <div
+          class="bg-[#1a2c38] rounded-md mt-3 flex items-center justify-center"
+        >
+          <ul class="flex flex-col">
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/hands.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/Shield.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/support.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/globe.svg" class="w-4" alt="svg" />
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="">
+      <div>
         <nav
           class="p-3 flex items-center z-10 bg-[#1A2C38] lg:px-14 2xl:px-28 fixed top-0 w-full left-0 shadow-lg justify-between"
         >
@@ -119,6 +180,58 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-black/60 w-full h-full absolute top-0 left-0 z-50">
+      <div
+        class="absolute top-[50%] my-10 left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[45rem] w-full z-40"
+      >
+        <div class="rounded-md">
+          <div
+            class="flex py-3 px-5 items-center justify-between bg-[#1A2C38] rounded-t-md"
+          >
+            <img src="./src/images/logo.svg" class="w-20" alt="" />
+            <button class="p-2 text-white">Exit</button>
+          </div>
+          <div class="bg-[#0F212E] px-5 py-3">
+            <form action="" class="space-y-5">
+              <div class="flex flex-col gap-2">
+                <span class="font-semibold text-gray-400"
+                  >Email or Username *</span
+                >
+                <input
+                  type="email"
+                  class="w-full bg-transparent hover:border-gray-500 outline-none border-2 transition-all duration-300 p-2 border-gray-600 rounded-md text-white"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-semibold text-gray-400">Password *</span>
+                <div
+                  class="hover:border-gray-500 border-2 gap-5 flex items-center justify-between transition-all duration-300 p-2 border-gray-600 rounded-md"
+                >
+                  <input
+                    type="password"
+                    class="w-full bg-transparent outline-none text-white"
+                  />
+                  <img
+                    src="./src/images/eyeSlash.svg"
+                    class="w-5 cursor-pointer"
+                    alt="svg"
+                  />
+                </div>
+              </div>
+
+              <button
+                class="w-full !mt-40 rounded-md text-lg p-4 font-semibold text-white text-center bg-blue-500 hover:bg-blue-600 transition-all duration-300"
+              >
+                Sign in
+              </button>
+              <fieldset class="">
+                <legend>or</legend>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>
