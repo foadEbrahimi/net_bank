@@ -1,365 +1,336 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Stake: Online Casino & Sports Betting - Play & Bet Online</title>
     <link rel="shortcut icon" href="" type="image/x-icon" />
     <link rel="stylesheet" href="./src/styles/output.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
+
   <body>
-    <!-- page 1 -->
-    <div class="p-4 flex flex-col justify-center h-[100dvh]" id="page1">
-      <div class="header-decor"></div>
-      <div class="logo-container">
-        <img src="./src/images/IMG_4100.PNG" alt="لوگو" />
-      </div>
-      <h2 class="text-center text-[#007bff] py-2">فرم ثبت‌نام</h2>
-      <div class="flex flex-col">
-        <div class="form-group">
-          <label for="nameInput">نام و نام خانوادگی</label>
-          <input
-            type="text"
-            id="nameInput"
-            placeholder="نام خود را وارد کنید"
-          />
-          <span id="nameValid" class="text-sm hidden text-red-600"
-            >لطفا نام خود را وارد کنید.</span
-          >
-        </div>
-        <div class="form-group">
-          <label for="phoneInput">شماره موبایل</label>
-          <input
-            type="text"
-            id="phoneInput"
-            name="phone"
-            placeholder="شماره موبایل خود را وارد کنید"
-            maxlength="11"
-          />
-          <span id="phoneValid" class="text-sm hidden text-red-600"
-            >شماره موبایل وارد شده صحیح نیست.</span
-          >
-        </div>
-        <div class="form-group">
-          <label for="codemeliInput">کد ملی</label>
-          <input
-            type="text"
-            id="codemeliInput"
-            name="national_code"
-            placeholder="کد ملی خود را وارد کنید"
-            maxlength="10"
-          />
-          <small>کد ملی باید ۱۰ رقم باشد</small>
-          <span id="codeValid" class="text-sm hidden text-red-600"
-            >کدملی وارد شده صحیح نیست.</span
-          >
-        </div>
-        <div class="form-group">
-          <button
-            id="firstBtn"
-            class="bg-[#007bff] p-3 hover:bg-[#0056b3] cursor-pointer transition-all duration-300 text-center w-full text-white rounded-md"
-          >
-            ثبت نام
-          </button>
-        </div>
-      </div>
-      <div class="footer-note">
-        با ثبت‌نام، شما با <a href="#">قوانین و مقررات</a> موافقت می‌کنید.
-      </div>
-    </div>
-    <!-- end page 1 -->
-    <!-- page 2 -->
-    <div
-      id="page2"
-      class="bg-black/90 p-3 flex hidden items-center flex-col justify-center h-[100dvh]"
-    >
-      <div class="relative">
-        <h1 class="mt-24 text-sm text-white">
-          لطفا صبر کنید درحال انتقال به درگاه ...
-        </h1>
-        <div
-          class="loader1 absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"
-        >
-          <div class="loader1Div">
-            <div></div>
-            <div><div></div></div>
-          </div>
-        </div>
-        <div
-          class="loader2 absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"
-        >
-          <div class="loader2Div">
-            <div></div>
-            <div><div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end page 2 -->
-    <!-- page 3 -->
-    <div id="page3" class="bg-[#F6F6F6] p-2 flex hidden flex-col h-[100dvh]">
-      <div class="flex flex-col bg-white p-1 rounded-lg">
-        <span class="text-[#776363] text-sm text-center"
-          >پرداخت اینترنتی تجارت الکترونیک پارسیان
-        </span>
-        <div class="flex items-center justify-between mt-3 px-2">
-          <img src="./src/images/shaparak-logo.png" class="w-20" alt="" />
-          <img src="./src/images/pec-logo.png" class="w-20" alt="" />
-        </div>
-      </div>
+    <div class="flex">
       <div
-        class="bg-[#0784F1] p-2 text-center mt-3 text-white text-lg rounded-xl"
+        class="hidden lg:flex w-16 items-center flex-col p-2 z-20 bg-[#0F212E]"
       >
-        پرداخت اینترنتی پارسیان
-      </div>
-      <div class="flex items-center justify-between gap-5 mt-5 px-1">
-        <div
-          class="flex-1 bg-[#E7E7E7] p-2 rounded-r-lg text-[12px] text-center"
-        >
-          زمان باقی مانده
-        </div>
-        <div
-          id="timer"
-          class="flex-1 bg-[#E7E7E7] p-2 rounded-l-lg text-[12px] text-center"
-        >
-          10:00
-        </div>
-      </div>
-      <div class="mt-5 bg-[#FFFFFF] p-3 rounded-2xl">
-        <!-- مبلغ پرداختی -->
-        <div
-          class="bg-[#15bb09] relative overflow-hidden rounded-xl text-white p-3 flex flex-col gap-3 mb-5"
-        >
-          <span class="text-xl">مبلغ قابل پرداخت</span>
-          <div class="flex items-center justify-between z-10">
-            <span class="text-4xl">190,000</span>
-            <span class="text-sm">ریال</span>
-          </div>
-          <div class="priceDiv"></div>
-        </div>
-        <form id="form">
-          <div class="relative">
-            <input
-              maxlength="19"
-              type="text"
-              id="cardInput"
-              class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
-            />
-            <span
-              class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
-            >
-              شماره کارت
-            </span>
-          </div>
-          <div class="relative mt-4">
-            <input
-              maxlength="3"
-              type="text"
-              id="cvv2Input"
-              class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
-            />
-            <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
-              >cvv2
-            </span>
-          </div>
-          <div class="relative mt-4">
-            <input
-              type="text"
-              id="exprationInput"
-              placeholder="ماه        /        سال"
-              class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
-            />
-            <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
-              >تاریخ انقضاء
-            </span>
-          </div>
-          <div class="relative mt-4">
-            <input
-              type="number"
-              id="captchaInput"
-              class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
+        <img
+          src="./src/images/list.svg"
+          class="w-6 cursor-pointer mt-5"
+          alt=""
+        />
+        <div class="mt-7">
+          <div class="cursor-pointer relative group">
+            <img
+              src="./src/images/casino-poker-cards-small-en.avif"
+              class="w-full rounded-sm"
+              alt="svg"
             />
             <img
-              src="./src/images/captcha.png"
-              class="w-24 absolute top-[50%] translate-y-[-50%] left-2"
-              alt=""
+              src="./src/images/casino-poker-cards-small-green-en.jpg"
+              class="w-full rounded-sm absolute hidden group-hover:flex top-0 left-0"
+              alt="svg"
             />
-            <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
-              >کد امنیتی
-            </span>
           </div>
-          <div class="relative mt-4">
-            <input
-              type="number"
-              id="poyaInput"
-              class="w-full outline-none border-2 pt-2 text-sm text-center border-gray-200 rounded-lg p-1"
+        </div>
+        <div class="mt-2">
+          <div class="cursor-pointer relative group">
+            <img
+              src="./src/images/sports-balls-small-en.avif"
+              class="w-full rounded-sm"
+              alt="svg"
             />
-            <span class="text-[10px] absolute -top-1 right-2 px-1 py-0 bg-white"
-              >رمزدوم
-            </span>
-            <div
-              id="poyaSpan"
-              class="absolute top-[50%] cursor-pointer left-2 rounded-md bg-[#E7E7E7] px-2 p-1 text-[12px] text-black translate-y-[-50%]"
+            <img
+              src="./src/images/sports-balls-small-orange-en.avif"
+              class="w-full rounded-sm absolute hidden group-hover:flex top-0 left-0"
+              alt="svg"
+            />
+          </div>
+        </div>
+        <div
+          class="bg-[#1a2c38] rounded-md mt-3 flex items-center justify-center"
+        >
+          <ul class="flex flex-col">
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
             >
-              درخواست رمزپویا
+              <img src="./src/images/gift.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/af.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/coup.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/newspaper.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/message.svg" class="w-4" alt="svg" />
+            </li>
+          </ul>
+        </div>
+        <div
+          class="bg-[#1a2c38] rounded-md mt-3 flex items-center justify-center"
+        >
+          <ul class="flex flex-col">
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/hands.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/Shield.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/support.svg" class="w-4" alt="svg" />
+            </li>
+            <li
+              class="py-3 hover:bg-gray-600 cursor-pointer rounded-md px-3 min-w-full"
+            >
+              <img src="./src/images/globe.svg" class="w-4" alt="svg" />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <nav
+          class="p-3 flex items-center z-10 bg-[#1A2C38] lg:px-14 2xl:px-28 fixed top-0 w-full left-0 shadow-lg justify-between"
+        >
+          <img src="./src/images/logo.svg" class="w-16" alt="" />
+          <div>
+            <button class="p-2 text-white">Sign in</button>
+            <button
+              class="p-2 px-4 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition-all duration-300"
+            >
+              Register
+            </button>
+          </div>
+        </nav>
+        <div class="bg-[#071824] relative lg:px-14 2xl:px-28 min-h-[120dvh]">
+          <!-- <img
+        src="./src/images/stakeBig.svg"
+        class="absolute top-12 left-0"
+        alt="svg"
+      /> -->
+          <div
+            class="flex flex-col sm:flex-row z-10 gap-3 mt-16 p-5 sm:gap-5 sm:items-center"
+          >
+            <div
+              class="flex items-center sm:order-2 gap-3 xl:gap-5 mt-10 sm:flex-1"
+            >
+              <img
+                src="./src/images/women.avif"
+                class="rounded-md min-w-[8rem] xl:max-w-[50rem] flex-1"
+                alt=""
+              />
+              <img
+                src="./src/images/sport.avif"
+                class="rounded-md min-w-[8rem] xl:max-w-[50rem] flex-1"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col min-h-full gap-4 sm:order-1 sm:flex-1">
+              <h1
+                class="text-white pt-20 text-4xl max-w-[40rem] sm:text-4xl sm:font-bold lg:text-5xl xl:text-6xl md:text-left text-center"
+              >
+                An unrivalled online Casino and Sportsbook
+              </h1>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 transition-all duration-300 sm:w-fit font-semibold mt-5 text-white p-3 w-full rounded-md"
+              >
+                Sign up
+              </button>
+              <span
+                class="text-center 2xl:pt-20 text-sm font-bold text-gray-400 sm:text-left"
+                >Or sign up with
+              </span>
+              <div
+                class="grid grid-cols-4 items-center sm:flex gap-5 sm:gap-3 w-full justify-center sm:justify-start"
+              >
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/facebook.png" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/google.svg" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/line.png" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/twitch.png" alt="" />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="flex items-center gap-2 mt-4">
-            <input id="check" type="checkbox" class="size-5" />
-            <label for="check" class="text-[11px] text-[#776363]"
-              >شماره کارت و تاریخ انقضاء را در درگاههای بانک پارسیان ذخیره کن
-            </label>
-          </div>
-          <button
-            class="bg-[#15bb09] hover:bg-[#218838] transition-all duration-300 flex items-center justify-center w-[95%] mx-auto mt-5 text-white text-center rounded-lg p-2"
-          >
-            پرداخت 190,000 ریال
-          </button>
-          <button
-            class="bg-[#dc3545] hover:bg-[#c82333] transition-all duration-300 flex items-center justify-center w-[95%] mx-auto mt-3 text-white text-center rounded-lg p-2"
-          >
-            انصراف
-          </button>
-        </form>
+        </div>
       </div>
     </div>
-    <!-- end page 3 -->
-    <!-- page 4 -->
-    <div id="page4" class="bg-white flex hidden flex-col h-[100dvh]">
-      <div class="bg-gradient-to-br p-3 from-[#6873FE] to-[#954FFA] h-[50dvh]">
-        <div class="flex items-center justify-between">
-          <img src="./src/images/list.svg" class="w-8 cursor-pointer" alt="" />
-          <span class="text-white text-2xl">VPN46</span>
-          <img
-            id="flagNavbar"
-            src="./src/images/germany.webp"
-            class="rounded-full w-10 h-10"
-            alt=""
-          />
-        </div>
-
-        <div class="flex items-center justify-between mt-10">
-          <div class="flex flex-col items-center gap-3 text-xl justify-between">
-            <span class="text-white">وضعیت</span>
-            <span class="text-red-600" id="spanVpn">قطع</span>
-          </div>
-          <div
-            id="counterDiv"
-            class="flex hidden text-white text-xl gap-3 flex-col items-start justify-between"
-          >
-            <span>تایم</span>
-            <span id="counter">00:00:00</span>
-          </div>
-        </div>
-        <div class="mx-auto flex flex-col gap-5 mt-32">
-          <div
-            id="btnVpn"
-            class="w-32 cursor-pointer shadow-2xl self-center flex items-center justify-center h-32 rounded-full transition-all duration-700 bg-white"
-          >
-            <img src="./src/images/off.svg" class="w-14" alt="svg" />
-          </div>
-        </div>
-      </div>
-
+    <div class="bg-black/60 w-full h-full absolute top-0 left-0 z-50">
       <div
-        class="flex items-center w-[60%] mx-auto cursor-pointer p-1 justify-center bg-[#00000042] rounded-lg mt-20"
+        class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[45rem] w-full z-40"
       >
-        <div id="serverBtn" class="flex z-20 relative items-center gap-2">
-          <img id="serverImg" src="" class="hidden w-9 rounded-sm" alt="svg" />
-          <span id="serverText" class="pt-1 text-black"
-            >سرور مورد نظر را انتخاب کنید</span
-          >
+        <div class="rounded-md">
           <div
-            id="serversDiv"
-            class="bg-[#ffffff] hidden shadow-lg z-20 p-2 absolute -top-0 -right-10 w-[13.7rem] rounded-lg"
+            class="flex py-3 px-5 items-center justify-between bg-[#1A2C38] rounded-t-md"
           >
-            <ul class="space-y-2">
-              <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
-              >
-                <img
-                  id="serverImg"
-                  draggable="false"
-                  src="./src/images/germany.webp"
-                  class="w-9 rounded-sm"
-                  alt=""
-                />
-                <span id="serverText" class="pt-1 text-black"
-                  >Germany - S1</span
+            <img src="./src/images/logo.svg" class="w-20" alt="" />
+            <button class="p-2 text-white">Exit</button>
+          </div>
+          <div class="bg-[#0F212E] px-5 py-3">
+            <form id="form1" class="space-y-5">
+              <div class="flex flex-col gap-2">
+                <span class="font-semibold text-gray-400"
+                  >Email or Username *</span
                 >
-              </li>
-              <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
-              >
-                <img
-                  id="serverImg"
-                  draggable="false"
-                  src="./src/images/england.webp"
-                  class="w-9 rounded-sm"
-                  alt=""
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full bg-transparent hover:border-gray-500 outline-none border-2 transition-all duration-300 p-2 border-gray-600 rounded-md text-white"
                 />
-                <span id="serverText" class="pt-1 text-black">UK - S2</span>
-              </li>
-              <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
-              >
-                <img
-                  id="serverImg"
-                  draggable="false"
-                  src="./src/images/singapore.png"
-                  class="w-9 rounded-sm"
-                  alt=""
-                />
-                <span id="serverText" class="pt-1 text-black"
-                  >Singapore - S3</span
+                <span id="error1" class="text-red-700 hidden text-sm"
+                  >Enter an email or username</span
                 >
-              </li>
-              <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-semibold text-gray-400">Password *</span>
+                <div
+                  class="hover:border-gray-500 border-2 gap-5 flex items-center justify-between transition-all duration-300 p-2 border-gray-600 rounded-md"
+                >
+                  <input
+                    type="password"
+                    id="password"
+                    class="w-full bg-transparent outline-none text-white"
+                  />
+                  <img
+                    src="./src/images/eyeSlash.svg"
+                    class="w-5 cursor-pointer"
+                    alt="svg"
+                    id="eye"
+                  />
+                </div>
+                <span id="error2" class="text-red-700 hidden text-sm"
+                  >Enter Password</span
+                >
+              </div>
+
+              <button
+                class="w-full !mt-40 rounded-md text-lg p-4 font-semibold text-white text-center bg-blue-500 hover:bg-blue-600 transition-all duration-300"
               >
-                <img
-                  id="serverImg"
-                  draggable="false"
-                  src="./src/images/sweden.png"
-                  class="w-9 rounded-sm"
-                  alt=""
-                />
-                <span id="serverText" class="pt-1 text-black">Sweden - S4</span>
-              </li>
-              <li
-                class="flex items-center gap-2 serverItem p-2 hover:bg-[#16122562] rounded-lg"
+                Sign in
+              </button>
+              <fieldset
+                class="text-center w-32 mx-auto text-white/50 border-t border-t-white/40 mt-5"
               >
-                <img
-                  id="serverImg"
-                  draggable="false"
-                  src="./src/images/usa.png"
-                  class="w-9 rounded-sm"
-                  alt=""
+                <legend class="px-2 2xl:text-lg">OR</legend>
+              </fieldset>
+              <div class="items-center flex gap-3 w-full justify-center">
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/facebook.png" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/google.svg" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/line.png" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/twitch.png" alt="" />
+                </div>
+              </div>
+              <span class="text-white font-bold flex justify-center"
+                >Forget Password</span
+              >
+              <span class="flex gap-1 justify-center text-gray-600"
+                >Don’t have an account?
+                <span class="font-bold text-white"> Register an Account </span>
+              </span>
+            </form>
+            <form id="form2" class="space-y-5 hidden">
+              <div class="flex flex-col gap-2">
+                <span class="font-semibold text-gray-400">Two Factor *</span>
+                <input
+                  type="number"
+                  id="factor"
+                  class="w-full bg-transparent hover:border-gray-500 outline-none border-2 transition-all duration-300 p-2 border-gray-600 rounded-md text-white"
                 />
-                <span id="serverText" class="pt-1 text-black">USA - S5</span>
-              </li>
-            </ul>
+                <span id="error3" class="text-red-700 hidden text-sm"
+                  >Enter Two Factor Code</span
+                >
+              </div>
+
+              <button
+                class="w-full !mt-40 rounded-md text-lg p-4 font-semibold text-white text-center bg-blue-500 hover:bg-blue-600 transition-all duration-300"
+              >
+                Sign in
+              </button>
+              <fieldset
+                class="text-center w-32 mx-auto text-white/50 border-t border-t-white/40 mt-5"
+              >
+                <legend class="px-2 2xl:text-lg">OR</legend>
+              </fieldset>
+              <div class="items-center flex gap-3 w-full justify-center">
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/facebook.png" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/google.svg" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/line.png" alt="" />
+                </div>
+                <div
+                  class="px-5 bg-gray-700 cursor-pointer sm:px-4 xl:px-3 flex items-center sm:flex-none justify-center hover:bg-slate-500 flex-1 py-3 rounded-md transition-all duration-300"
+                >
+                  <img class="w-5" src="./src/images/twitch.png" alt="" />
+                </div>
+              </div>
+              <span class="text-white font-bold flex justify-center"
+                >Forget Password</span
+              >
+              <span class="flex gap-1 justify-center text-gray-600"
+                >Don’t have an account?
+                <span class="font-bold text-white"> Register an Account </span>
+              </span>
+            </form>
           </div>
         </div>
       </div>
-
-      <span class="text-black text-[12px] text-center mt-auto p-3"
-        >با استفاده از برنامه، شما با شرایط خدمات و سیاست حفظ حریم خصوصی ما
-        موافقت می کنید</span
-      >
     </div>
-    <!-- end page 4 -->
-
-    <script type="module" src="./src/js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
+    <script src="./src/js/app.js"></script>
   </body>
 </html>
