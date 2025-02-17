@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Black: ['RobotoCondensed Black'],
-        Bold: ['RobotoCondensed Bold'],
-        Base: ['RobotoCondensed Thin'],
-        Regular: ['RobotoCondensed Regular'],
+        sofia400: ['sofia400'],
+        sofia500: ['sofia500'],
+        sofia600: ['sofia600'],
+        sofia700: ['sofia700'],
       },
     },
   },

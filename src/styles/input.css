@@ -1,56 +1,94 @@
-/* @import '/node_modules/toastify-js/src/toastify.css'; */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: 'RobotoCondensed Bold';
-  src: url(../font/RobotoCondensed-Medium.ttf);
+  font-family: 'sofia700';
+  src: url('../font/SofiaProBlackAz.otf');
 }
 @font-face {
-  font-family: 'RobotoCondensed Thin';
-  src: url(../font/RobotoCondensed-Thin.ttf);
+  font-family: 'sofia600';
+  src: url('../font/SofiaProBoldAz.otf');
 }
 @font-face {
-  font-family: 'RobotoCondensed Black';
-  src: url(../font/RobotoCondensed-Black.ttf);
+  font-family: 'sofia500';
+  src: url('../font/SofiaProMediumAz.otf');
 }
+
 @font-face {
-  font-family: 'RobotoCondensed Regular';
-  src: url(../font/RobotoCondensed-Regular.ttf);
+  font-family: 'sofia400';
+  src: url('../font/SofiaProRegularAz.otf');
 }
-body {
-  overflow-x: hidden;
-}
+
 * {
-  font-family: 'RobotoCondensed Thin';
+  font-family: 'sofia400';
 }
 
-#carousel-item-1 {
-  background: url('../images/light-bg.jpg') center/cover;
-}
-#carousel-item-2,
-#carousel-item-3 {
-  background: url('../images/dark-bg.jpg') center/cover;
+::-webkit-inner-spin-button {
+  display: none;
 }
 
-.operations__tab--active {
-  background-color: white;
-  color: #555555;
-  font-family: 'RobotoCondensed Black' !important;
+.gift-cards-section {
+  text-align: center;
+  /* padding: 20px; */
 }
 
-.operations__tab--active span {
-  font-family: 'RobotoCondensed Black' !important;
+h2 {
+  color: #333;
+  margin-bottom: 20px;
 }
-.operations__tab span {
-  font-family: 'RobotoCondensed Regular';
+
+/* کانتینر کارت‌ها */
+.cards-container {
+  display: grid;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.operations__tab:hover {
-  border: 1px solid white;
-  border-bottom: 0;
+
+/* استایل کارت‌ها */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 12rem;
 }
-.operations__content--active {
-  display: flex;
-  flex-direction: column;
+
+.card img {
+  max-width: 100%;
+  height: 6rem;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.card img:hover {
+  transform: translateY(-10px);
+}
+.card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card button {
+  background-color: #6a1b9a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 1000px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.card button:hover {
+  background-color: #765aa1;
+}
+
+#scrollBox::-webkit-scrollbar {
+  width: 10px;
+}
+
+#scrollBox::-webkit-scrollbar-thumb {
+  background: #6a1b9a;
+  border-radius: 15px;
 }

@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyGift Visa Gift Card</title>
-    <link rel="stylesheet" href="./src/styles/bootstrap.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Check Your Gift Card's Balance | Giftcards.com</title>
+    <link
+      rel="shortcut icon"
+      href="./src/images/favicon.svg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./src/styles/output.css" />
     <link
       rel="stylesheet"
@@ -14,682 +17,706 @@
     />
   </head>
   <body>
-    <!-- navbar -->
+    <!-- nav -->
     <nav
-      class="!px-5 md:!px-12 lg:!px-14 xl:!px-24 2xl:!px-40 py-3 flex gap-3 items-center justify-between"
+      class="p-2 py-4 shadow-lg grid grid-cols-3 lg:grid-cols-12 items-center justify-between xl:px-16 2xl:px-20"
     >
-      <div>
-        <img src="./src/images/logo-visa-alt.webp" alt="logo" class="w-20" />
-      </div>
-      <div class="flex items-center gap-2 relative 2xl:!gap-5">
-        <button
-          class="bg-[#CD5A03] rounded-md font-Bold py-2 px-3 text-white 2xl:text-lg"
+      <div class="hidden lg:block lg:col-span-full order-5 pt-3 2xl:pl-20">
+        <ul
+          class="[&>*]:uppercase [&>*]:cursor-pointer flex items-start justify-between [&>*]:xl:text-[17px] [&>*]:font-sofia500 lg:px-4 text-[#3b1a6e] [&>*]:flex [&>*]:items-center [&>*]:gap-1"
         >
-          Get a Visa Gist Card
-        </button>
-        <button id="menuBtn">
-          <img src="./src/images/nav-list.svg" class="w-6" alt="svg" />
-        </button>
-        <div
-          id="menuList"
-          class="bg-[#565656] py-2 rounded-md z-10 min-w-[18rem] right-0 hidden absolute top-[4.2rem]"
-        >
-          <ul
-            class="[&>*]:px-4 [&>*]:py-2 [&>*]:bg-transparent [&>*]:text-xl [&>*]:cursor-pointer [&>*]:font-Regular [&>*]:text-white"
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
           >
-            <li class="hover:bg-white hover:text-black">Register Card</li>
-            <li class="hover:bg-white hover:text-black">
-              Check Balance/Transactions
-            </li>
-            <li class="hover:bg-white hover:text-black">Personalize PIN</li>
-            <li class="hover:bg-white hover:text-black">
-              Frequently Asked Questions
-            </li>
-            <li class="hover:bg-white hover:text-black">Contact Us</li>
-            <li class="hover:bg-white hover:text-black">Privacy Policy</li>
-            <li class="hover:bg-white hover:text-black">Get More Gift Cards</li>
+            categories
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            visa
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            mastercard
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            egifts
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            cards by mail
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            multi-brand
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            brands
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+          <li
+            class="before:h-1 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:absolute relative before:bg-[#3B1A6E] before:bottom-0"
+          >
+            for business
+            <img
+              src="./src/images/chevron-down.svg"
+              class="w-3"
+              alt="arrow svg"
+            />
+          </li>
+        </ul>
+      </div>
+      <img
+        src="./src/images/logo.svg"
+        alt="logo svg"
+        class="lg:w-28 xl:w-32 xl:mr-8 w-12 order-2 xl:col-span-1 lg:col-span-2 place-self-center"
+      />
+      <!-- <div class="relative order-1"> -->
+      <img
+        src="./src/images/list.svg"
+        alt="list svg"
+        id="listSvg"
+        class="lg:hidden"
+      />
+      <img id="xSvg" src="./src/images/x.svg" class="w-7 hidden" alt="svg" />
+      <div
+        id="scrollBox"
+        class="absolute hidden p-3 bg-white lg:hidden top-16 h-[30rem] z-10 overflow-y-scroll shadow-xl left-2 w-[17rem]"
+      >
+        <ul class="space-y-2">
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            Visa
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            MASTERCARD®
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            EGIFTS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            CARDS BY MAIL
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            MULTI-BRAND
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            BRANDS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            FOR BUSINESS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            BLOGS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            DEALS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            HANUKKAH
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            CHRISTMAS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            NEW YEAR'S EVE
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            RESTAURANT
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            TRAVEL
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            GAMING
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            KIDS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            HOME
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            CLOTHING
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            ONE4ALL
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            CHARITY
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            BEAUTY
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            FOOD DELIVERY
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            WELLNESS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            CONGRATS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            THANK YOU
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            BIRTHDAY
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            ANNIVERSARY
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            WEDDING
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            EXPERIENCES
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            MORE HOLIDAYS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            MORE OCCASSIONS
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            BY RECIPIENT
+          </li>
+          <hr />
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            TRACK ORDER
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            ACTIVATE
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            CHECK BALANCE
+          </li>
+          <li
+            class="text-[#3C286D] p-2 cursor-pointer w-[90%] hover:w-full hover:bg-[#e3daf0] hover:rounded-xl transition-all duration-300"
+          >
+            SUPPORT
+          </li>
+          <hr />
+          <li
+            class="text-[#3C286D] flex items-center gap-2 p-2 cursor-pointer transition-all duration-300"
+          >
+            <img src="./src/images/US.svg" alt="svg" class="" />
+            <span class="text-sm">English</span>
+          </li>
+        </ul>
+      </div>
+      <!-- </div> -->
+      <div
+        class="flex flex-1 lg:col-span-6 lg:order-3 items-center place-content-end gap-3 order-3"
+      >
+        <div class="hidden lg:flex 2xl:mr-5">
+          <ul
+            class="[&>*]:uppercase [&>*]:text-sm [&>*]:font-sofia600 [&>*]:2xl:text-[16px] [&>*]:text-[#3B1A6E] flex items-center gap-2 divide-x-2 divide-[#611A6E]"
+          >
+            <li>track order</li>
+            <li class="pl-2 2xl:pl-3">activate</li>
+            <li class="pl-2 2xl:pl-3">check balance</li>
+            <li class="pl-2 2xl:pl-3">support</li>
           </ul>
         </div>
-      </div>
-    </nav>
-    <!-- end navbar -->
-    <!-- slider -->
-    <div id="carouselExampleIndicators" class="carousel slide">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div
-          id="carousel-item-1"
-          class="carousel-item py-3 px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40 active"
-        >
-          <div class="flex flex-col md:flex-row items-center gap-10">
-            <img
-              src="./src/images/personalized-visa-gift.webp"
-              draggable="false"
-              alt=""
-              class="xl:w-[40rem] md:w-[20rem]"
-            />
-            <div class="space-y-4">
-              <span class="text-4xl xl:text-6xl font-Regular"
-                >Personalized Visa® Gift Cards</span
-              >
-              <p class="font-Regular text-xl">
-                Create one-of-a-kind gifts to celebrate any occasion!Use
-                personalized Visa gift cards to shop everywhere Visa debit cards
-                are accepted in the U.S.
-              </p>
-              <button
-                class="bg-[#282828] font-Bold p-2 px-3 rounded-md text-white"
-              >
-                Create Now
-              </button>
-            </div>
-          </div>
+        <div class="mt-4 hidden lg:block">
+          <img src="./src/images/US.svg" class="w-9" alt="usa flag" />
+          <span class="text-[#3b1a6e] text-[13px]">English</span>
         </div>
-        <div
-          id="carousel-item-2"
-          class="carousel-item py-3 px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40"
-        >
-          <div class="flex flex-col md:flex-row items-center gap-10">
-            <img
-              src="./src/images/visa-virtual-account-banner.webp"
-              draggable="false"
-              alt=""
-              class="xl:w-[40rem] md:w-[20rem]"
-            />
-            <div class="space-y-4">
-              <span class="text-4xl xl:text-6xl font-Regular text-white"
-                >Visa® Virtual Account</span
-              >
-              <p class="font-Regular text-xl text-white">
-                A special moment is seconds away! Redeem online everywhere Visa
-                debit cards are accepted in the U.S. Email and text message
-                delivery options available.
-              </p>
-              <button
-                class="bg-white font-Bold p-2 px-3 rounded-md text-[#282828]"
-              >
-                Buy Now
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          id="carousel-item-3"
-          class="carousel-item py-3 px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40"
-        >
-          <div class="flex flex-col md:flex-row items-center gap-10">
-            <img
-              src="./src/images/egift-banner.webp"
-              draggable="false"
-              alt=""
-              class="xl:w-[40rem] md:w-[20rem]"
-            />
-            <div class="space-y-4">
-              <span class="text-4xl xl:text-6xl font-Regular text-white"
-                >Introducing the Visa® eGIFT
-              </span>
-              <p class="font-Regular text-xl text-white">
-                <span class="font-Black"
-                  >Now available at selected retailers!</span
-                >
-                Experience the speed, convenience, and technology of an eGift in
-                gift-ready secure packaging. Simply scan a QR code, add to
-                mobile wallet, and enjoy!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <!-- end slider -->
-    <!-- main -->
-    <div class="px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40">
-      <!-- box -->
-      <div class="bg-[#EFEFEF] rounded-md p-3 mt-5">
-        <div
-          class="bg-[#7EAED6] rounded-t-md p-3 pb-0 operations__tab-container"
-        >
-          <div class="flex items-end">
-            <div
-              data-tab="1"
-              class="operations__tab operations__tab--active px-4 cursor-pointer rounded-md rounded-b-none p-2"
-            >
-              <img
-                src="./src/images/pencil.svg"
-                class="w-10 md:hidden"
-                alt=""
-              />
-              <span class="text-2xl hidden md:flex">Register Card</span>
-            </div>
-            <div
-              data-tab="2"
-              class="operations__tab px-4 cursor-pointer rounded-md rounded-b-none p-2"
-            >
-              <img src="./src/images/money.svg" class="w-10 md:hidden" alt="" />
-              <span class="text-2xl hidden md:flex"
-                >Check Balance/Transactions</span
-              >
-            </div>
-            <div
-              data-tab="3"
-              class="operations__tab px-4 cursor-pointer rounded-md rounded-b-none p-2"
-            >
-              <img src="./src/images/key.svg" class="w-10 md:hidden" alt="" />
-              <span class="text-2xl hidden md:flex">Personalize PIN</span>
-            </div>
-          </div>
-        </div>
-        <div class="py-3 px-3 xl:px-5 pb-4 bg-white">
-          <!-- section 1 -->
-          <div
-            class="operations__content operations__content--1 operations__content--active"
+        <img src="./src/images/card.svg" class="w-7 xl:w-9" alt="svg" />
+        <div class="flex flex-col items-center mt-2">
+          <img src="./src/images/user.svg" class="w-6 xl:w-8" alt="svg" />
+          <span class="uppercase text-[11px] xl:text-[13px] text-[#3b1a6e]"
+            >sign in</span
           >
-            <form id="form">
-              <div>
-                <span class="text-lg font-Regular">
-                  Please enter your card information below to register your
-                  card.
-                </span>
-                <div
-                  class="flex flex-col md:flex-row lg:px-10 xl:px-20 2xl:px-28 md:items-center md:justify-between"
-                >
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter Gift Card Number</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                        maxlength="16"
-                        id="giftCardInput"
-                        placeholder="Card Number"
-                      />
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter Expiration Date</label
-                      >
-                      <div class="flex items-center">
-                        <input
-                          type="text"
-                          class="form-control form-control-lg w-16 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                          maxlength="2"
-                          id="mmInput"
-                          placeholder="MM"
-                        />
-                        <span class="font-Bold text-2xl">/</span>
-                        <input
-                          type="text"
-                          class="form-control form-control-lg w-16 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                          maxlength="2"
-                          id="yyInput"
-                          placeholder="YY"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter 3-Digit Code (CVV2)</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg w-32 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                        id="cvv2Input"
-                        maxlength="3"
-                        placeholder="Enter Code"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4 space-x-5 flex items-center justify-center">
-                <button
-                  class="font-Regular text-lg rounded-md px-3 py-1.5 text-[#8D8C8C] hover:text-[#797979]"
-                >
-                  Cancel
-                </button>
-                <button
-                  id="registerCardBtn"
-                  class="font-Regular text-lg py-1.5 px-3 hover:bg-[#316DA5] transition-all duration-300 rounded-md text-white bg-[#3784C6]"
-                >
-                  Register Card
-                </button>
-              </div>
-            </form>
-          </div>
-          <!-- section 1 end -->
-          <!-- section 2 -->
-          <div class="operations__content hidden operations__content--2">
-            <form id="form2">
-              <div>
-                <span class="text-lg font-Regular">
-                  Please enter your card information below to view your
-                  transactions or balance.
-                </span>
-                <div
-                  class="flex flex-col md:flex-row lg:px-10 xl:px-20 2xl:px-28 md:items-center md:justify-between"
-                >
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter Gift Card Number</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                        maxlength="16"
-                        id="giftCardInput2"
-                        placeholder="Card Number"
-                      />
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter Expiration Date</label
-                      >
-                      <div class="flex items-center">
-                        <input
-                          type="text"
-                          class="form-control form-control-lg w-16 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                          maxlength="2"
-                          id="mmInput2"
-                          placeholder="MM"
-                        />
-                        <span class="font-Bold text-2xl">/</span>
-                        <input
-                          type="text"
-                          class="form-control form-control-lg w-16 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                          maxlength="2"
-                          id="yyInput2"
-                          placeholder="YY"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter 3-Digit Code (CVV2)</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg w-32 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                        id="cvv2Input2"
-                        maxlength="3"
-                        placeholder="Enter Code"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4 space-x-5 flex items-center justify-center">
-                <button
-                  class="font-Regular text-lg rounded-md px-3 py-1.5 text-[#8D8C8C] hover:text-[#797979]"
-                >
-                  Cancel
-                </button>
-                <button
-                  id="registerCardBtn2"
-                  class="font-Regular text-lg py-1.5 px-3 hover:bg-[#316DA5] transition-all duration-300 rounded-md text-white bg-[#3784C6]"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-          <!-- section 2 end -->
-          <!-- section 3 -->
-          <div class="operations__content hidden operations__content--3">
-            <form id="form3">
-              <div>
-                <span class="text-lg font-Regular">
-                  Please enter your card information below to personalize your
-                  PIN.
-                </span>
-                <div
-                  class="flex flex-col md:flex-row lg:px-10 xl:px-20 2xl:px-28 md:items-center md:justify-between"
-                >
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter Gift Card Number</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                        maxlength="16"
-                        id="giftCardInput3"
-                        placeholder="Card Number"
-                      />
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter Expiration Date</label
-                      >
-                      <div class="flex items-center">
-                        <input
-                          type="text"
-                          class="form-control form-control-lg w-16 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                          maxlength="2"
-                          id="mmInput3"
-                          placeholder="MM"
-                        />
-                        <span class="font-Bold text-2xl">/</span>
-                        <input
-                          type="text"
-                          class="form-control form-control-lg w-16 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                          maxlength="2"
-                          id="yyInput3"
-                          placeholder="YY"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <div class="mt-3">
-                      <label
-                        for="giftCard"
-                        class="form-label text-lg font-Regular text-[#8D8C8C]"
-                        >Enter 3-Digit Code (CVV2)</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg w-32 font-Regular text-[#8D8C8C] placeholder:font-Regular placeholder:text-[#8D8C8C]"
-                        id="cvv2Input3"
-                        maxlength="3"
-                        placeholder="Enter Code"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4 space-x-5 flex items-center justify-center">
-                <button
-                  class="font-Regular text-lg rounded-md px-3 py-1.5 text-[#8D8C8C] hover:text-[#797979]"
-                >
-                  Cancel
-                </button>
-                <button
-                  id="registerCardBtn3"
-                  class="font-Regular text-lg py-1.5 px-3 hover:bg-[#316DA5] transition-all duration-300 rounded-md text-white bg-[#3784C6]"
-                >
-                  Personalize PIN
-                </button>
-              </div>
-            </form>
-          </div>
-          <!-- section 3 end -->
         </div>
       </div>
-      <!-- end box -->
 
-      <!-- but another -->
+      <!-- search -->
       <div
-        class="flex flex-col md:flex-row items-center gap-5 xl:p-5 my-5 justify-between"
+        class="order-4 lg:col-span-4 xl:col-span-5 flex border lg:order-2 col-span-full mt-2 border-[#3b1a6e] rounded-full min-w-full"
       >
-        <img
-          src="./src/images/other-gcm-cards-horizontal.webp"
-          class="xl:max-w-3xl md:max-w-lg lg:max-w-xl"
-          alt="img"
+        <input
+          type="search"
+          class="placeholder:text-sm lg:p-3 xl:p-3.5 bg-transparent w-full focus:border-0 focus:outline-none p-2"
+          placeholder="Search your favorite gift cards"
         />
-        <button class="bg-[#CA4E02] text-white font-Bold rounded-md p-2">
-          Buy another Gift Card
-        </button>
-      </div>
-      <!-- end but another -->
-    </div>
-    <!-- end main -->
-    <!-- cards -->
-    <div class="bg-[#7CADD8] px-5 py-3 md:px-12 lg:px-14 xl:px-24 2xl:!px-40">
-      <div class="py-3">
-        <span class="font-Regular text-2xl">
-          Here's where you will find
-          <span class="font-Black">Frequently Asked Questions</span> (FAQs) and
-          the
-          <span class="font-Black">Cardholder Agreement.</span>
-        </span>
-
-        <p class="font-Black text-2xl mt-5">Select your card</p>
-
+        <img src="./src/images/mic-off.svg" alt="svg" class="w-8 mr-3" />
         <div
-          class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-8 gap-x-5 mt-4"
+          class="w-12 bg-[#3b1a6e] hover:bg-[#775BA1] cursor-pointer transition-all min-h-full px-2 rounded-r-full"
         >
           <img
-            src="./src/images/card1.webp"
-            class="cursor-pointer"
-            alt="card img"
-          />
-          <img
-            src="./src/images/card2.webp"
-            class="cursor-pointer"
-            alt="card img"
-          />
-          <img
-            src="./src/images/card3.webp"
-            class="cursor-pointer"
-            alt="card img"
-          />
-          <img
-            src="./src/images/card4.webp"
-            class="cursor-pointer"
-            alt="card img"
-          />
-          <img
-            src="./src/images/card5.webp"
-            class="cursor-pointer"
-            alt="card img"
-          />
-          <img
-            src="./src/images/card6.webp"
-            class="cursor-pointer"
-            alt="card img"
+            src="./src/images/search.svg"
+            class="w-10 px-1 h-full"
+            alt="svg"
           />
         </div>
       </div>
-    </div>
-    <!-- end cards -->
-    <!-- contact -->
-    <div>
-      <div
-        class="bg-[#221F1F] text-3xl text-white font-Bold p-3 w-full px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40"
-      >
-        Contact Us
-      </div>
-      <div class="px-5 py-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40">
-        <div class="flex flex-col md:flex-row gap-5 md:gap-20">
-          <span class="font-Black text-2xl min-w-[9rem]">
-            Notice to Our <br />
-            Customers
+      <!-- end search -->
+    </nav>
+    <!-- end nav -->
+
+    <!-- main -->
+    <main class="p-2 py-4 xl:px-16 2xl:px-32 mt-5">
+      <span class="text-[#3B1A6E] font-sofia500 text-sm lg:text-lg"
+        >Check Gift Card Balance
+      </span>
+      <div class="mt-3 lg:grid lg:grid-cols-7 lg:gap-10">
+        <div class="bg-[#F6F6F6] p-2 flex flex-col flex-1 gap-3 lg:col-span-4">
+          <span
+            class="text-[#3B1A6E] xl:text-[#505E71] xl:text-lg font-sofia500 text-sm"
+            >Uncover the secrets of your gift card balance with ease. Whether
+            you got a thoughtful Visa, Mastercard, or a beloved brand's gift
+            card, this is your one-stop shop for balance check. Simply locate
+            your card number and security code (if applicable), fill in the
+            fields below, and click "Check Balance." It's like magic... but
+            faster!
           </span>
-          <p class="font-Regular text-[22px] tracking-wider">
-            We are committed to the safety of our customers, employees and the
-            wellness of our communities at large. To help stem the speed of the
-            current outbreak, we are changing operations to allow as many of our
-            Customer Service team members to work remotely as possible. This
-            change may result in longer-than-normal hold times. To better help
-            us help you, please use self-service options or refer to FAQs before
-            contacting us. We appreciate your patience and look forward to
-            serving you now and in the future.
-          </p>
-        </div>
-        <div class="flex flex-col md:flex-row gap-5 md:gap-20 mt-4">
-          <div class="flex items-center min-w-[9rem] gap-2 w-fit">
-            <img
-              src="./src/images/phone.svg"
-              class="scale-x-[-1] w-6"
-              alt="phone svg"
-            />
-            <span class="font-Black text-2xl">Call</span>
+          <span class="text-[#3B1A6E] xl:text-lg font-sofia600 text-sm"
+            >Visa® or Mastercard®</span
+          >
+          <span class="text-sm text-[#3B1A6E] xl:text-[#505E71] xl:text-lg">
+            Enter your card information to view your balance and transactions.
+            If you would like to check the balance of your GiftCards.com Gift
+            Card (19-digits card number), click here.
+          </span>
+          <div class="space-y-3">
+            <div>
+              <div class="relative">
+                <label
+                  for="card-number"
+                  class="absolute left-2 top-2 text-[#505E71] transition-all bg-white duration-300 ease-in-out"
+                >
+                  Enter 16-digit card number
+                </label>
+                <input
+                  maxlength="19"
+                  type="text"
+                  id="card-number"
+                  placeholder="____-____-____-____"
+                  class="p-2 w-full rounded-2xl focus:outline-none placeholder:opacity-5 focus:placeholder:opacity-100 border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
+                  onfocus="this.previousElementSibling.classList.add('!-top-2', 'left-0', 'text-xs')"
+                  onblur="if(this.value===''){this.previousElementSibling.classList.remove('!-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col justify-between gap-3 md:flex-row">
+              <div class="md:flex-1">
+                <div class="relative">
+                  <label
+                    for="expiration-date"
+                    class="absolute left-2 top-2 text-[#505E71] transition-all bg-white duration-300 ease-in-out"
+                  >
+                    Expiration Date
+                  </label>
+                  <input
+                    maxlength="5"
+                    type="text"
+                    id="expiration-date"
+                    placeholder="MM/YY"
+                    class="p-2 w-full rounded-2xl focus:outline-none placeholder:opacity-5 focus:placeholder:opacity-100 border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
+                    onfocus="this.previousElementSibling.classList.add('!-top-2', 'left-0', 'text-xs')"
+                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('!-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                  />
+                </div>
+              </div>
+              <div class="md:flex-1">
+                <div class="relative">
+                  <label
+                    for="cvv2"
+                    class="absolute left-2 top-2 text-[#505E71] transition-all bg-white duration-300 ease-in-out"
+                  >
+                    Cvv
+                  </label>
+                  <input
+                    maxlength="3"
+                    type="text"
+                    id="cvv2"
+                    class="p-2 w-full rounded-2xl focus:outline-none border-gray-300 focus:border-[#47227e] border placeholder:font-sofia500"
+                    onfocus="this.previousElementSibling.classList.add('!-top-2', 'left-0', 'text-xs')"
+                    onblur="if(this.value===''){this.previousElementSibling.classList.remove('!-top-2', 'left-0', 'text-xs')} else {this.previousElementSibling.classList.add('-top-2', 'left-0', 'text-xs')}"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="font-Regular text-[22px] tracking-wider">
-            For Customer Service Inquiries please contact the number on the back
-            of your card. If your card is lost or stolen, refer to the FAQs
-            specific to your Visa Gift Card.
-          </p>
+          <button
+            id="checkBtn"
+            class="uppercase font-sofia600 lg:p-4 lg:text-[15px] lg:mt-5 text-white bg-[#3B1A6E] rounded-xl text-sm p-2 max-w-fit px-5 hover:bg-[#684997] transition-all"
+          >
+            check balance
+          </button>
+          <div class="flex flex-col gap-3">
+            <span class="text-[#3B1A6E] xl:text-[#505E71] xl:text-lg text-sm"
+              >Visa and Mastercard Gift Cards can be used everywhere Visa and
+              Mastercard debit cards are accepted in the US. No cash or ATM
+              access.
+            </span>
+            <span
+              class="text-[#3B1A6E] xl:text-[#505E71] xl:text-lg text-sm font-sofia600"
+              >ⓘ To activate your card, please
+              <span class="underline">click here</span>
+            </span>
+          </div>
         </div>
-        <div class="flex flex-col md:flex-row gap-5 md:gap-20 mt-8">
-          <div class="flex items-center min-w-[9rem] gap-2 w-fit">
-            <img src="./src/images/envelope.svg" class="w-6" alt="phone svg" />
-            <span class="font-Black text-2xl">Write</span>
+        <div class="gift-cards-section lg:col-span-3 bg-[#E3DAF0] flex-1">
+          <h2 class="text-[#3B1A6E] text-3xl font-sofia500 pt-3">
+            Top Selling Gift Cards
+          </h2>
+          <div
+            class="cards-container grid-cols-2 lg:p-2 justify-center items-center"
+          >
+            <div class="card place-self-end">
+              <div
+                class="bg-[#FFDC00] h-8 flex items-center justify-center text-sm uppercase text-center rounded-t-xl"
+              >
+                best seller
+              </div>
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img1.png"
+                  class="w-44"
+                  alt="Visa Virtual Gift Card"
+                />
+                <h3 class="text-sm">Visa® Virtual Gift Card</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+            <div class="card">
+              <div
+                class="bg-[#FFDC00] h-8 text-sm uppercase text-center rounded-t-xl"
+              ></div>
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img3.png"
+                  class="w-44"
+                  alt="DoorDash eGift"
+                />
+                <h3 class="text-sm">DoorDash eGift</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+            <div class="card place-self-end">
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img2.png"
+                  class="w-44"
+                  alt="Giftcards.com eGift"
+                />
+                <h3 class="text-sm">Giftcards.com eGift</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+            <div class="card place-self-start">
+              <div class="p-[10px]">
+                <img
+                  src="./src/images/img3.png"
+                  class="w-44"
+                  alt="DoorDash eGift"
+                />
+                <h3 class="text-sm">DoorDash eGift</h3>
+                <button>Buy Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="text-xl text-[#3B1A6E] font-sofia600 pt-2"
+            >Checkout all top selling cards &#x2192;</span
+          >
+        </div>
+      </div>
+    </main>
+    <!-- end main -->
+    <!-- text -->
+    <div class="p-2 py-4 xl:px-16 2xl:px-32 mt-10 flex flex-col">
+      <span class="text-[#3B1A6E] text-lg"
+        >This website and its services are intended for gift cards purchased
+        online and distributed by Blackhawk Network. If you purchased a
+        Blackhawk Network gift card in-store, please refer to the information on
+        the back of the card or visit the appropriate site below based on your
+        card type:
+      </span>
+      <div class="mt-10 flex flex-col">
+        <span>
+          <span class="font-sofia600 text-[#3B1A6E]">For Mastercard</span>:
+          <a href="" class="text-[#3B1A6E] underline"
+            >https://mcgift.giftcardmall.com/</a
+          >
+          or call <span class="font-sofia600 text-[#3B1A6E]">877.322.471</span>
+        </span>
+        <span>
+          <span class="font-sofia600 text-[#3B1A6E]">For Visa</span>:
+          <a href="" class="text-[#3B1A6E] underline"
+            >https://mygift.giftcardmall.com/</a
+          >
+          or call <span class="font-sofia600 text-[#3B1A6E]">888.524.1283</span>
+        </span>
+      </div>
+      <span class="text-[#3B1A6E] text-lg mt-5"
+        >Have a card from one of our 350+ brands on Giftcards.com? Find details
+        for checking your
+        <span class="underline">retailer gift card balance here.</span>
+      </span>
+    </div>
+    <!-- end text -->
+
+    <!-- footer -->
+    <footer class="bg-[#3B1A6E]">
+      <div class="p-2 lg:p-5 xl:px-20">
+        <div class="lg:grid lg:grid-cols-5">
+          <div class="w-full flex flex-col gap-3 lg:order-5">
+            <span class="text-white text-center"
+              >Subscribe to our newsletter
+            </span>
+            <div class="relative">
+              <input
+                type="email"
+                class="w-full p-1"
+                placeholder="Enter e-mail"
+              />
+              <div
+                class="bg-[#3B1A6E] rounded-full p-0.5 top-[50%] translate-y-[-50%] right-1 absolute"
+              >
+                <img
+                  src="./src/images/arrow-right.svg"
+                  class="flex items-center justify-center w-5 h-5"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mt-5">
+              <span
+                class="text-center text-white text-2xl lg:text-lg font-sofia500"
+                >Follow us on social media
+              </span>
+              <div class="flex items-center gap-5 mx-auto mt-3">
+                <img
+                  src="./src/images/facebook-social-icon.svg"
+                  class="w-9 hover:-translate-y-3 transition-all duration-500"
+                  alt="svg"
+                />
+                <img
+                  src="./src/images/instagram-social-icon.svg"
+                  class="w-9 hover:-translate-y-3 transition-all duration-500"
+                  alt="svg"
+                />
+                <img
+                  src="./src/images/twitter-social-icon.svg"
+                  class="w-9 hover:-translate-y-3 transition-all duration-500"
+                  alt="svg"
+                />
+                <img
+                  src="./src/images/pinterest-social-icon.svg"
+                  class="w-9 hover:-translate-y-3 transition-all duration-500"
+                  alt="svg"
+                />
+              </div>
+            </div>
+            <button
+              class="rounded-full hidden mx-auto mt-3 lg:flex w-fit p-3 px-5 bg-[#a48ccb] text-[#3B1A6E]"
+            >
+              Cookie Prefrences
+            </button>
           </div>
           <div>
-            <p class="font-Black text-2xl">
-              Blackhawk Network <br />
-              ATTN: Customer Service <br />
-              10615 Professional Circle Ste. 102 Reno, NV 89521
-            </p>
-            <p class="font-Regular mt-4 text-[22px] tracking-wider">
-              When contacting us please provide your name, your card account
-              number and the last four digits of your home phone number. Please
-              help us help you by providing as much information as you can.
-            </p>
+            <span class="text-lg uppercase text-white">about</span>
+            <ul class="text-white text-sm [&>*]:cursor-pointer space-y-3 mt-3">
+              <li>Careers</li>
+              <li>Corporate Bulk Buy</li>
+              <li>Customer Reviews</li>
+              <li>GiftCards Canada</li>
+              <li>Gift Card Store UK</li>
+              <li>Giftcards.com Rewards</li>
+              <li>About Us</li>
+              <li>Become an Affiliate</li>
+            </ul>
+          </div>
+          <div>
+            <span class="text-lg uppercase text-white">Support</span>
+            <ul class="text-white text-sm [&>*]:cursor-pointer space-y-3 mt-3">
+              <li>Cardholder Agreements</li>
+              <li>Lost Gift Card</li>
+              <li>FAQs</li>
+              <li>Activate Card</li>
+              <li>Check Balance</li>
+              <li>Order Status</li>
+              <li>Contact Us</li>
+              <li>More Support Options</li>
+            </ul>
+          </div>
+          <div>
+            <span class="text-lg uppercase text-white">Legal</span>
+            <ul class="text-white text-sm [&>*]:cursor-pointer space-y-3 mt-3">
+              <li>Terms of Use</li>
+              <li>Privacy Policy</li>
+              <li>Cookie Policy</li>
+              <li>Electronic Communications Agreement</li>
+              <li>Accessibility</li>
+              <li>Open Loop Consumer Disclosure</li>
+            </ul>
+          </div>
+          <div>
+            <span class="text-lg uppercase text-white">Self Serve </span>
+            <ul class="text-white text-sm [&>*]:cursor-pointer space-y-3 mt-3">
+              <li>Activate Card</li>
+              <li>Check Balance</li>
+              <li>Track Order</li>
+            </ul>
           </div>
         </div>
+        <span class="text-white text-xl flex justify-center mt-5"
+          >© 2025 | Giftcards.com, LLC</span
+        >
       </div>
-    </div>
-    <!-- end contact -->
-    <!-- Issuing Statement -->
-    <div>
-      <div
-        class="bg-[#221F1F] text-3xl text-white font-Bold p-3 w-full px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-40"
-      >
-        Issuing Statement
-      </div>
-      <div
-        class="px-5 py-5 md:px-12 lg:px-14 flex flex-col xl:px-24 2xl:!px-40"
-      >
-        <p class="text-2xl font-Regular">
-          The Visa® Gift Card is issued by Pathward, N.A., Member FDIC or
-          Sunrise Banks, N.A., St. Paul, MN 55103, Member FDIC, pursuant to a
-          license from Visa U.S.A. Inc. Please see back of card for Issuer. Your
-          card may be used in the United States everywhere Visa debit cards are
-          accepted. The card may not be used at any merchant, including Internet
-          and mail or telephone order merchants, outside of the U.S. or the
-          District of Columbia. See Cardholder Agreement for complete details.
-          Use of this card constitutes acceptance of the terms and conditions
-          stated in the Cardholder Agreement. Distributed and serviced by
-          Blackhawk Network California, Inc.
-        </p>
-        <span class="text-2xl font-Regular mt-4"
-          >© Blackhawk Network, Inc. All rights reserved. Trademarks shown are
-          property of their respective owners and used with permission.
-        </span>
-      </div>
-    </div>
-    <!-- end Issuing Statement -->
-    <footer
-      class="bg-[#404041] pt-5 pb-3 px-5 md:px-12 lg:px-14 xl:px-24 2xl:!px-72"
-    >
-      <div
-        class="flex flex-col gap-5 items-center sm:items-start sm:flex-row justify-between"
-      >
-        <div>
-          <span class="uppercase text-lg font-Regular text-white">support</span>
-          <ul
-            class="[&>*]:text-white space-y-2 mt-2 [&>*]:cursor-pointer [&>*]:text-sm [&>*]:font-Regular"
-          >
-            <li class="hover:underline">Register Your Card</li>
-            <li class="hover:underline">Check Your Balance</li>
-            <li class="hover:underline">Personalize Your Pin</li>
-            <li class="hover:underline">Frequently Asked Questions</li>
-            <li class="hover:underline">Lost And Stolen</li>
-            <li class="hover:underline">Dispute Transactions</li>
-          </ul>
-        </div>
-        <div>
-          <span class="uppercase text-lg font-Regular text-white">LEGAL</span>
-          <ul
-            class="[&>*]:text-white space-y-2 mt-2 [&>*]:cursor-pointer [&>*]:text-sm [&>*]:font-Regular"
-          >
-            <li class="hover:underline">Consumer Disclosure</li>
-            <li class="hover:underline">Cardholder Agreement</li>
-            <li class="hover:underline">Terms Of Use</li>
-            <li class="hover:underline">Privacy Policy</li>
-            <li class="hover:underline">Cookie Policy</li>
-          </ul>
-        </div>
-        <div>
-          <span class="uppercase text-lg font-Regular text-white">CONNECT</span>
-          <ul
-            class="[&>*]:text-white space-y-2 mt-2 [&>*]:cursor-pointer [&>*]:text-sm [&>*]:font-Regular"
-          >
-            <li class="hover:underline">Contact Us</li>
-          </ul>
-          <button
-            class="bg-white mt-3 px-2 py-1 rounded-md hover:underline font-Regular text-[#363636]"
-          >
-            Cookie Preferences
-          </button>
-        </div>
-      </div>
-      <span class="font-Regular flex mt-5 justify-center text-white"
-        >© 2025 Blackhawk Network</span
-      >
     </footer>
-    <script type="module" src="./src/js/index.js"></script>
+    <!-- end footer -->
+
+    <div class="flex flex-col gap-5 p-2 lg:p-10 xl:px-14 2xl:px-32">
+      <span class="font-sofia500"
+        >The Giftcards.com Visa® Gift Card, Visa Virtual Gift Card, and Visa
+        eGift Card are issued by Pathward, N.A., Member FDIC, pursuant to a
+        license from Visa U.S.A. Inc. The Visa Gift Card can be used everywhere
+        Visa debit cards are accepted in the US. No cash or ATM access. The Visa
+        Virtual Gift Card can be redeemed at every internet, mail order, and
+        telephone merchant everywhere Visa debit cards are accepted in the US.
+        No cash or ATM access. The Giftcards.com Visa eGift Card can be redeemed
+        online or in stores everywhere contactless Visa debit cards are accepted
+        in the U.S. No cash or ATM access. The Giftcards.com Visa Reward Cards
+        are issued by Pathward, N.A., Member FDIC, pursuant to a license from
+        Visa U.S.A. Inc. The Visa Reward Card can be used everywhere Visa debit
+        cards are accepted. No cash or ATM Access. The Giftcards.com Mastercard®
+        Gift Cards are issued by Pathward, N.A., Member FDIC, pursuant to
+        license by Mastercard International Incorporated. The Mastercard Gift
+        Virtual Account is issued by Pathward, N.A., Member FDIC, pursuant to
+        license by Mastercard International Incorporated. Mastercard Gift
+        Virtual Account can be redeemed at every internet, mail order, and
+        telephone merchant everywhere Debit Mastercard is accepted in the US.
+        Mastercard Gift Cards can be used everywhere Debit Mastercard is
+        accepted in the US. Mastercard is a registered trademark, and the
+        circles design is a trademark of Mastercard International Incorporated.
+        The merchants represented are not sponsors of Giftcards.com or otherwise
+        affiliated with Giftcards.com The logos and other identifying marks
+        attached are trademarks of and owned by each represented company and/or
+        its affiliates. Please visit each company's website for additional terms
+        and conditions.
+      </span>
+      <span class="font-sofia500"
+        >One4all Gift Cards, Giving Good Gift Cards, Happy Gift Cards, Holiday
+        Favorites Gift Cards, Choice Gift Cards, and the Giftcards.com Gift Card
+        are curated by Blackhawk Network and issued by Pathward, N.A., Member
+        FDIC.
+      </span>
+    </div>
+    <script src="./src/js/index.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
