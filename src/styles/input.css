@@ -1,94 +1,268 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-  font-family: 'sofia700';
-  src: url('../font/SofiaProBlackAz.otf');
-}
-@font-face {
-  font-family: 'sofia600';
-  src: url('../font/SofiaProBoldAz.otf');
-}
-@font-face {
-  font-family: 'sofia500';
-  src: url('../font/SofiaProMediumAz.otf');
-}
 
 @font-face {
-  font-family: 'sofia400';
-  src: url('../font/SofiaProRegularAz.otf');
+  font-family: 'vazir';
+  src: url('../font/vazir.woff2');
 }
-
 * {
-  font-family: 'sofia400';
+  font-family: 'vazir';
 }
-
 ::-webkit-inner-spin-button {
   display: none;
 }
 
-.gift-cards-section {
-  text-align: center;
-  /* padding: 20px; */
+@keyframes ldio-x2uulkbinbj {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader1Div div {
+  box-sizing: border-box !important;
+}
+.loader1Div > div {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  top: 14px;
+  left: 14px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #d50931 transparent #d50931 transparent;
+  animation: ldio-x2uulkbinbj 1.7857142857142856s linear infinite;
+}
+.loader1Div > div:nth-child(2) {
+  border-color: transparent;
+}
+.loader1Div > div:nth-child(2) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.loader1Div > div:nth-child(2) div:before,
+.loader1Div > div:nth-child(2) div:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 24px;
+  background: #d50931;
+  border-radius: 50%;
+  box-shadow: 0 64px 0 0 #d50931;
+}
+.loader1Div > div:nth-child(2) div:after {
+  left: -8px;
+  top: 24px;
+  box-shadow: 64px 0 0 0 #d50931;
+}
+.loader1 {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  overflow: hidden;
+}
+.loader1Div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.7);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loader1Div div {
+  box-sizing: content-box;
+}
+/*  */
+
+.loader2Div div {
+  box-sizing: border-box !important;
+}
+.loader2Div > div {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  top: 14px;
+  left: 14px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #c7c7c7 transparent #c7c7c7 transparent;
+  animation: ldio-x2uulkbinbj 2.5s linear infinite;
+}
+.loader2Div > div:nth-child(2) {
+  border-color: transparent;
+}
+.loader2Div > div:nth-child(2) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.loader2Div > div:nth-child(2) div:before,
+.loader2Div > div:nth-child(2) div:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 24px;
+  background: #c7c7c7;
+  border-radius: 50%;
+  box-shadow: 0 64px 0 0 #c7c7c7;
+}
+.loader2Div > div:nth-child(2) div:after {
+  left: -8px;
+  top: 24px;
+  box-shadow: 64px 0 0 0 #c7c7c7;
+}
+.loader2 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  overflow: hidden;
+}
+.loader2Div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.5);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loader2Div div {
+  box-sizing: content-box;
+}
+.priceDiv {
+  color: #fff;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #10ab06;
+  position: absolute;
+  left: -74px;
+  top: -10px;
 }
 
-h2 {
-  color: #333;
+.registration-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-form:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 50%;
+  top: -30px;
+  right: -30px;
+  z-index: -1;
+}
+
+.registration-form:after {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 193, 7, 0.1);
+  border-radius: 50%;
+  bottom: -20px;
+  left: -20px;
+  z-index: -1;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-/* کانتینر کارت‌ها */
-.cards-container {
-  display: grid;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.logo-container img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* استایل کارت‌ها */
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.registration-form h2 {
   text-align: center;
-  max-width: 12rem;
+  margin-bottom: 20px;
+  color: #007bff;
 }
 
-.card img {
-  max-width: 100%;
-  height: 6rem;
+.form-group {
   margin-bottom: 15px;
-  border-radius: 8px;
-  transition: all 0.3s;
 }
-.card img:hover {
-  transform: translateY(-10px);
-}
-.card h3 {
+
+label {
+  display: block;
+  margin-bottom: 5px;
   color: #333;
-  margin-bottom: 10px;
-}
-
-.card button {
-  background-color: #6a1b9a;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 1000px;
-  cursor: pointer;
   font-size: 16px;
-  transition: all 0.3s;
 }
 
-.card button:hover {
-  background-color: #765aa1;
+input[type='text'],
+input[type='submit'] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-#scrollBox::-webkit-scrollbar {
-  width: 10px;
+input[type='submit'] {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-#scrollBox::-webkit-scrollbar-thumb {
-  background: #6a1b9a;
-  border-radius: 15px;
+input[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+small {
+  color: #999;
+  display: block;
+  margin-top: 3px;
+}
+
+.header-decor {
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(135deg, #007bff, #ff4081);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 20px;
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+  font-size: 14px;
+}
+
+.footer-note a {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+.footer-note a:hover {
+  text-decoration: underline;
 }
